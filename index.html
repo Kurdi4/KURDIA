@@ -7,48 +7,16 @@
   <title>کوردیە | بازاڕی بەرهەمە کوردییەکان</title>
 
   <style>
-
-    /* =====================================================
-       KURDIA COLOR SYSTEM
-       Main Accent: Amber #FFBF00
-    ====================================================== */
-
-    :root {
-      --amber: #FFBF00;
-      --amber-dark: #D99F00;
-      --amber-light: #FFD34D;
-
-      --black: #111111;
-      --black-soft: #1A1A1A;
-      --dark-card: #202020;
-
-      --cream: #F7F4ED;
-      --white: #FFFFFF;
-
-      --text: #171717;
-      --muted: #777777;
-      --border: #E8E8E8;
-    }
-
-
-    /* =====================================================
-       RESET
-    ====================================================== */
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: Arial, Tahoma, sans-serif;
-      background: var(--cream);
-      color: var(--text);
+      background: #f7f4ed;
+      color: #171717;
       line-height: 1.7;
     }
 
@@ -62,26 +30,20 @@
       cursor: pointer;
     }
 
-
-    /* =====================================================
-       HEADER
-    ====================================================== */
+    /* ================= HEADER ================= */
 
     header {
-      background: var(--black);
-      color: var(--white);
-
+      background: #111;
+      color: white;
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      box-shadow: 0 4px 25px rgba(0,0,0,.20);
+      box-shadow: 0 3px 20px rgba(0,0,0,.18);
     }
 
     .navbar {
       max-width: 1250px;
       height: 90px;
-
       margin: auto;
       padding: 0 25px;
 
@@ -92,95 +54,59 @@
 
     .brand-name {
       justify-self: start;
-
-      font-size: 29px;
+      font-size: 28px;
       font-weight: 900;
-
-      color: var(--amber);
-
-      letter-spacing: -.5px;
+      color: #ffd21f;
     }
 
     .center-logo {
       justify-self: center;
-
       width: 64px;
       height: 64px;
-
       border-radius: 50%;
-
       overflow: hidden;
-
-      background: var(--white);
-
-      border: 2px solid var(--amber);
-
-      box-shadow:
-        0 0 0 4px rgba(255,191,0,.08),
-        0 0 25px rgba(255,191,0,.22);
+      background: white;
+      border: 2px solid #ffd21f;
+      box-shadow: 0 0 18px rgba(255,210,31,.25);
     }
 
     .center-logo img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
     }
 
     .nav-actions {
       justify-self: end;
-
       display: flex;
       gap: 10px;
     }
 
     .nav-btn {
-      background: var(--black-soft);
-      color: var(--white);
-
       border: 1px solid #333;
-
+      background: #1d1d1d;
+      color: white;
       padding: 10px 16px;
-
       border-radius: 10px;
-
-      font-weight: 700;
-
-      transition: .2s ease;
+      transition: .2s;
     }
 
     .nav-btn:hover {
-      background: var(--amber);
-      color: var(--black);
-      border-color: var(--amber);
+      background: #ffd21f;
+      color: #111;
     }
 
-
-    /* =====================================================
-       HERO
-    ====================================================== */
+    /* ================= HERO ================= */
 
     .hero {
       min-height: 510px;
-
       background:
-        radial-gradient(
-          circle at center,
-          rgba(255,191,0,.18),
-          transparent 40%
-        ),
-        linear-gradient(
-          rgba(0,0,0,.82),
-          rgba(0,0,0,.92)
-        );
-
-      color: var(--white);
-
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+        radial-gradient(circle at center, #4a4100, #111 65%);
+      color: white;
       display: flex;
       align-items: center;
-
       text-align: center;
-
       padding: 70px 20px;
     }
 
@@ -190,60 +116,1136 @@
     }
 
     .hero h1 {
-      font-size: clamp(45px, 7vw, 82px);
-
-      color: var(--amber);
-
+      font-size: clamp(40px, 7vw, 78px);
+      color: #ffd21f;
       font-weight: 900;
-
-      margin-bottom: 12px;
-
-      text-shadow:
-        0 0 25px rgba(255,191,0,.16);
+      margin-bottom: 15px;
     }
 
     .hero h2 {
-      font-size: clamp(25px, 4vw, 43px);
-
+      font-size: clamp(24px, 4vw, 42px);
       margin-bottom: 15px;
-
-      color: var(--white);
     }
 
     .hero p {
-      color: #D5D5D5;
-
+      color: #ddd;
       font-size: 19px;
-
       max-width: 700px;
-
       margin: 0 auto 30px;
     }
 
     .hero-buttons {
       display: flex;
-
       justify-content: center;
-
       gap: 12px;
-
       flex-wrap: wrap;
     }
 
     .primary-btn {
-      background: var(--amber);
-
-      color: var(--black);
-
-      border: 1px solid var(--amber);
-
+      background: #ffd21f;
+      color: #111;
+      border: none;
       padding: 14px 25px;
-
       border-radius: 12px;
-
       font-weight: 900;
-
       font-size: 16px;
+    }
 
-      transition: .2s ease;
-   
+    .secondary-btn {
+      background: transparent;
+      color: white;
+      border: 1px solid #777;
+      padding: 14px 25px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .search-area {
+      max-width: 1000px;
+      margin: -30px auto 50px;
+      position: relative;
+      z-index: 5;
+      padding: 0 20px;
+    }
+
+    .search-box {
+      background: white;
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.13);
+      display: flex;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 17px;
+      padding: 14px;
+      direction: rtl;
+    }
+
+    .search-box button {
+      background: #111;
+      color: #ffd21f;
+      border: none;
+      border-radius: 12px;
+      padding: 0 25px;
+      font-weight: bold;
+    }
+
+    /* ================= GENERAL ================= */
+
+    .container {
+      max-width: 1250px;
+      margin: auto;
+      padding: 0 25px;
+    }
+
+    .section {
+      padding: 65px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: #777;
+    }
+
+    /* ================= CATEGORIES ================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      border-radius: 16px;
+      padding: 22px 10px;
+      text-align: center;
+      border: 1px solid #eee;
+      transition: .2s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      border-color: #ffd21f;
+    }
+
+    .category-icon {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    .category strong {
+      font-size: 14px;
+    }
+
+    /* ================= PRODUCTS ================= */
+
+    .products-section {
+      background: #111;
+      color: white;
+    }
+
+    .products-section .section-title p {
+      color: #aaa;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #1b1b1b;
+      border: 1px solid #292929;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      transition: .25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: #ffd21f;
+    }
+
+    .product-image {
+      height: 250px;
+      background: #252525;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ffd21f;
+      color: #111;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .heart {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      font-size: 18px;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .brand {
+      color: #ffd21f;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .rating {
+      color: #ffd21f;
+      font-size: 14px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .price {
+      color: #ffd21f;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .add-btn {
+      background: #ffd21f;
+      color: #111;
+      border: none;
+      padding: 9px 13px;
+      border-radius: 9px;
+      font-weight: bold;
+    }
+
+    /* ================= PRODUCT DETAIL ================= */
+
+    .product-detail {
+      background: #f7f4ed;
+      padding: 80px 0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 25px;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px 17px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .detail-box {
+      background: white;
+      border-radius: 25px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+
+    .detail-image {
+      min-height: 500px;
+      background: #f1eee6;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 150px;
+    }
+
+    .detail-content {
+      padding: 20px 5px;
+    }
+
+    .detail-brand {
+      color: #c69d00;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .detail-content h1 {
+      font-size: 42px;
+      margin: 10px 0;
+    }
+
+    .detail-rating {
+      margin: 12px 0;
+      color: #d5a900;
+      font-size: 18px;
+    }
+
+    .detail-price {
+      font-size: 34px;
+      color: #c69d00;
+      font-weight: 900;
+      margin: 20px 0;
+    }
+
+    .detail-description {
+      color: #666;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .quantity-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .quantity {
+      display: flex;
+      width: 140px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .quantity button {
+      width: 40px;
+      border: none;
+      background: #f2f2f2;
+      font-size: 20px;
+    }
+
+    .quantity span {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .detail-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .buy-btn {
+      background: #111;
+      color: #ffd21f;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .cart-btn {
+      background: #ffd21f;
+      color: #111;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    /* ================= BRANDS ================= */
+
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .brand-card {
+      background: white;
+      border: 1px solid #eee;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    /* ================= SELLER ================= */
+
+    .seller {
+      background: #ffd21f;
+      padding: 65px 20px;
+      text-align: center;
+    }
+
+    .seller h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .seller p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    .seller-btn {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    footer .logo-text {
+      color: #ffd21f;
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #999;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+      .categories {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .brands {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .detail-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        height: 75px;
+        padding: 0 12px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+      .center-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .nav-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 450px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .brands {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-image {
+        min-height: 320px;
+        font-size: 100px;
+      }
+
+      .detail-content h1 {
+        font-size: 30px;
+      }
+
+      .detail-price {
+        font-size: 28px;
+      }
+
+      .search-box button {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <nav class="navbar">
+
+      <div class="brand-name">
+        کوردیە
+      </div>
+
+      <div class="center-logo">
+        <img src="FB_IMG_1790953402602.jpg" alt="لۆگۆی کوردیە">
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-btn">گەڕان</button>
+        <button class="nav-btn">🛒 سەبەت</button>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>کوردیە</h1>
+
+      <h2>بازاڕی بەرهەمە کوردییەکان</h2>
+
+      <p>
+        بەرهەمە کوردییەکان و براندە ناوخۆییەکان لە یەک شوێن بدۆزەرەوە.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#products" class="primary-btn">
+          بینینی بەرهەمەکان
+        </a>
+
+        <a href="#seller" class="secondary-btn">
+          ببە بە فرۆشیار
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SEARCH ================= -->
+
+  <div class="search-area">
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="بگەڕێ بۆ بەرهەم یان براند..."
+      >
+
+      <button onclick="searchProducts()">
+        گەڕان
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= CATEGORIES ================= -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>پۆلەکان</h2>
+
+        <p>
+          لە نێوان پۆلە جۆراوجۆرەکاندا بگەڕێ
+        </p>
+
+      </div>
+
+      <div class="categories">
+
+        <div class="category">
+          <div class="category-icon">👕</div>
+          <strong>جل و بەرگ</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">👜</div>
+          <strong>جانتا و پێڵاو</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">💄</div>
+          <strong>جوانکاری</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🍯</div>
+          <strong>خواردن و خواردنەوە</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🏠</div>
+          <strong>ماڵ و ژیان</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🎁</div>
+          <strong>دیاری</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🌿</div>
+          <strong>سروشتی</strong>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🧵</div>
+          <strong>دەستکرد</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PRODUCTS ================= -->
+
+  <section class="section products-section" id="products">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>بەرهەمەکان</h2>
+
+        <p>
+          هەڵبژاردەیەک لە بەرهەمە کوردییەکان
+        </p>
+
+      </div>
+
+      <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <span class="badge">
+              نوێ
+            </span>
+
+            <button class="heart">
+              ♡
+            </button>
+
+            👜
+
+          </div>
+
+          <div class="product-info">
+
+            <div class="brand">
+              براندی کوردی
+            </div>
+
+            <div class="product-name">
+              جانتای دەستکرد
+            </div>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-row">
+
+              <div class="price">
+                $35
+              </div>
+
+              <button
+                class="add-btn"
+                onclick="openProduct('جانتای دەستکرد', 'براندی کوردی', '$35', '👜')"
+              >
+                زیادکردن
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <span class="badge">
+              نوێ
+            </span>
+
+            <button class="heart">
+              ♡
+            </button>
+
+            👕
+          </div>
+
+          <div class="product-info">
+
+            <div class="brand">
+              بەرهەمی ناوخۆیی
+            </div>
+
+            <div class="product-name">
+              جلی کوردی مۆدێرن
+            </div>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-row">
+
+              <div class="price">
+                $45
+              </div>
+
+              <button
+                class="add-btn"
+                onclick="openProduct('جلی کوردی مۆدێرن', 'بەرهەمی ناوخۆیی', '$45', '👕')"
+              >
+                زیادکردن
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <span class="badge">
+              پڕفرۆش
+            </span>
+
+            <button class="heart">
+              ♡
+            </button>
+
+            🌿
+          </div>
+
+          <div class="product-info">
+
+            <div class="brand">
+              سروشتی کوردستان
+            </div>
+
+            <div class="product-name">
+              بەرهەمی سروشتی
+            </div>
+
+            <div class="rating">
+              ★★★★☆
+            </div>
+
+            <div class="price-row">
+
+              <div class="price">
+                $20
+              </div>
+
+              <button
+                class="add-btn"
+                onclick="openProduct('بەرهەمی سروشتی', 'سروشتی کوردستان', '$20', '🌿')"
+              >
+                زیادکردن
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <span class="badge">
+              تایبەت
+            </span>
+
+            <button class="heart">
+              ♡
+            </button>
+
+            🎁
+
+          </div>
+
+          <div class="product-info">
+
+            <div class="brand">
+              کاری دەستی
+            </div>
+
+            <div class="product-name">
+              دیاری دەستکرد
+            </div>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-row">
+
+              <div class="price">
+                $25
+              </div>
+
+              <button
+                class="add-btn"
+                onclick="openProduct('دیاری دەستکرد', 'کاری دەستی', '$25', '🎁')"
+              >
+                زیادکردن
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PRODUCT DETAIL ================= -->
+
+  <section class="product-detail" id="productDetail">
+
+    <div class="container">
+
+      <a href="#products" class="back-btn">
+        ← گەڕانەوە بۆ بەرهەمەکان
+      </a>
+
+      <div class="detail-box">
+
+        <div class="detail-image" id="detailImage">
+          👜
+        </div>
+
+        <div class="detail-content">
+
+          <div class="detail-brand" id="detailBrand">
+            براندی کوردی
+          </div>
+
+          <h1 id="detailName">
+            جانتای دەستکرد
+          </h1>
+
+          <div class="detail-rating">
+            ★★★★★
+            <span style="color:#777;font-size:14px;">
+              (4.9)
+            </span>
+          </div>
+
+          <div class="detail-price" id="detailPrice">
+            $35
+          </div>
+
+          <p class="detail-description">
+
+            بەرهەمێکی کوردیی کوالیتی بەرز،
+            بە شێوەیەکی تایبەت و بە وردەکارییە جوانەکان
+            دروستکراوە. گونجاوە بۆ بەکارهێنانی ڕۆژانە
+            و دیاری.
+
+          </p>
+
+          <div class="quantity-title">
+            ژمارەی بەرهەم
+          </div>
+
+          <div class="quantity">
+
+            <button onclick="changeQuantity(-1)">
+              −
+            </button>
+
+            <span id="quantity">
+              1
+            </span>
+
+            <button onclick="changeQuantity(1)">
+              +
+            </button>
+
+          </div>
+
+          <div class="detail-actions">
+
+            <button class="cart-btn" onclick="addToCart()">
+              🛒 زیادکردن بۆ سەبەت
+            </button>
+
+            <button class="buy-btn" onclick="buyNow()">
+              کڕینی ئێستا
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= BRANDS ================= -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>براندە کوردییەکان</h2>
+
+        <p>
+          براندە ناوخۆییەکان لە کوردیە
+        </p>
+
+      </div>
+
+      <div class="brands">
+
+        <div class="brand-card">
+          براندی ١
+        </div>
+
+        <div class="brand-card">
+          براندی ٢
+        </div>
+
+        <div class="brand-card">
+          براندی ٣
+        </div>
+
+        <div class="brand-card">
+          براندی ٤
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SELLER ================= -->
+
+  <section class="seller" id="seller">
+
+    <h2>
+      بەرهەمەکەت هەیە؟
+    </h2>
+
+    <p>
+      ببە بە یەکێک لە فرۆشیارەکانی کوردیە
+      و بەرهەمەکەت بە کڕیارانی زیاتر بناسێنە.
+    </p>
+
+    <button class="seller-btn">
+      ببە بە فرۆشیار
+    </button>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="logo-text">
+      کوردیە
+    </div>
+
+    <p>
+      بازاڕی بەرهەمە کوردییەکان
+    </p>
+
+    <p style="margin-top:15px;font-size:13px;">
+      © 2026 کوردیە — هەموو مافەکان پارێزراون.
+    </p>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    let currentQuantity = 1;
+
+    function openProduct(name, brand, price, image) {
+
+      document.getElementById("detailName").innerText = name;
+
+      document.getElementById("detailBrand").innerText = brand;
+
+      document.getElementById("detailPrice").innerText = price;
+
+      document.getElementById("detailImage").innerText = image;
+
+      currentQuantity = 1;
+
+      document.getElementById("quantity").innerText = currentQuantity;
+
+      document.getElementById("productDetail")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    function changeQuantity(number) {
+
+      currentQuantity += number;
+
+      if (currentQuantity < 1) {
+        currentQuantity = 1;
+      }
+
+      document.getElementById("quantity").innerText =
+        currentQuantity;
+
+    }
+
+
+    function addToCart() {
+
+      alert(
+        "بەرهەمەکە بە سەرکەوتوویی زیادکرا بۆ سەبەت."
+      );
+
+    }
+
+
+    function buyNow() {
+
+      alert(
+        "لە هەنگاوی داهاتوودا پەڕەی تەواوی داواکاری و COD زیاد دەکەین."
+      );
+
+    }
+
+
+    function searchProducts() {
+
+      const value =
+        document.getElementById("searchInput").value.trim();
+
+      if (value === "") {
+
+        alert("تکایە ناوی بەرهەم یان براند بنووسە.");
+
+        return;
+
+      }
+
+      alert(
+        "گەڕان بۆ: " + value
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
