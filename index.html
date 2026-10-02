@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>KURDIA — Made in Kurdistan</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#080808;
+  color:white;
+}
+
+header{
+  background:#0b0b0b;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #d4a900;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  color:#ffd21c;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:14px;
+}
+
+.hero{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:50px 20px;
+  background:
+    radial-gradient(circle at center,#4a3900 0%,#171300 35%,#080808 70%);
+}
+
+.hero h1{
+  font-size:60px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:#ffd21c;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:20px;
+  margin-bottom:30px;
+}
+
+.btn{
+  display:inline-block;
+  background:#ffd21c;
+  color:#080808;
+  padding:15px 32px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.section{
+  padding:70px 7%;
+  text-align:center;
+}
+
+.section h2{
+  color:#ffd21c;
+  font-size:34px;
+  margin-bottom:35px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:18px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.category{
+  background:#151515;
+  border:1px solid #4d3c00;
+  padding:30px 15px;
+  border-radius:15px;
+  font-size:18px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.category:hover{
+  border-color:#ffd21c;
+  transform:translateY(-5px);
+}
+
+footer{
+  background:#050505;
+  text-align:center;
+  padding:35px 20px;
+  border-top:1px solid #4d3c00;
+}
+
+footer strong{
+  color:#ffd21c;
+  font-size:24px;
+}
+
+@media(max-width:600px){
+  .hero h1{
+    font-size:42px;
+  }
+
+  nav a{
+    font-size:11px;
+    margin-left:8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">KURDIA</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#">Brands</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Discover <span>KURDIA</span></h1>
+
+    <p>
+      Made in Kurdistan — Kurdish Brands & Local Products
+    </p>
+
+    <a href="#categories" class="btn">
+      Explore Products
+    </a>
+  </div>
+</section>
+
+<section class="section" id="categories">
+
+  <h2>Shop by Category</h2>
+
+  <div class="categories">
+
+    <div class="category">👕 Fashion</div>
+
+    <div class="category">👜 Bags & Shoes</div>
+
+    <div class="category">💄 Beauty</div>
+
+    <div class="category">🍯 Food</div>
+
+    <div class="category">🏠 Home</div>
+
+    <div class="category">🎁 Gifts</div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <p><strong>KURDIA</strong></p>
+
+  <br>
+
+  <p>Made in Kurdistan</p>
+
+  <br>
+
+  <p>All Kurdish brands in one place.</p>
+
+</footer>
+
+</body>
+</html>
