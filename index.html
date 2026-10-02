@@ -531,6 +531,145 @@
       font-weight: bold;
     }
 
+    /* ================= SELLER FORM ================= */
+
+    .seller-form-page {
+      display: none;
+      min-height: 100vh;
+      background: #f7f4ed;
+      padding: 70px 20px;
+    }
+
+    .seller-form-wrapper {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .seller-form-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .seller-form-header h1 {
+      font-size: 42px;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .seller-form-header p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    .seller-form-box {
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.10);
+      border-top: 5px solid #ffd21f;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .form-group label span {
+      color: #d00000;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      transition: .2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #ffd21f;
+      box-shadow: 0 0 0 3px rgba(255,210,31,.15);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .photo-upload {
+      border: 2px dashed #ffd21f;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      background: #fffdf3;
+    }
+
+    .photo-upload p {
+      margin-bottom: 12px;
+      color: #666;
+    }
+
+    .photo-upload input {
+      border: none;
+      padding: 0;
+      background: transparent;
+    }
+
+    .selfie-preview {
+      display: none;
+      max-width: 180px;
+      max-height: 180px;
+      margin: 15px auto 0;
+      border-radius: 15px;
+      object-fit: cover;
+      border: 3px solid #ffd21f;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .send-whatsapp-btn {
+      flex: 1;
+      min-width: 220px;
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .close-form-btn {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 16px 25px;
+      border-radius: 12px;
+      font-weight: 900;
+    }
+
+    .required-note {
+      font-size: 13px;
+      color: #777;
+      margin-top: 10px;
+    }
+
     /* ================= FOOTER ================= */
 
     footer {
@@ -554,6 +693,7 @@
     /* ================= RESPONSIVE ================= */
 
     @media (max-width: 1000px) {
+
       .categories {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -569,9 +709,11 @@
       .detail-box {
         grid-template-columns: 1fr;
       }
+
     }
 
     @media (max-width: 650px) {
+
       .navbar {
         height: 75px;
         padding: 0 12px;
@@ -623,547 +765,746 @@
       .search-box button {
         padding: 0 15px;
       }
+
+      .seller-form-box {
+        padding: 22px;
+      }
+
+      .seller-form-header h1 {
+        font-size: 30px;
+      }
+
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- ================= MAIN WEBSITE ================= -->
 
-  <header>
-    <nav class="navbar">
+  <div id="mainWebsite">
 
-      <div class="brand-name">
+    <!-- ================= HEADER ================= -->
+
+    <header>
+      <nav class="navbar">
+
+        <div class="brand-name">
+          کوردیە
+        </div>
+
+        <div class="center-logo">
+          <img src="FB_IMG_1790953402602.jpg" alt="لۆگۆی کوردیە">
+        </div>
+
+        <div class="nav-actions">
+          <button class="nav-btn">گەڕان</button>
+
+          <button class="nav-btn">
+            🛒 سەبەت
+          </button>
+        </div>
+
+      </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <h1>کوردیە</h1>
+
+        <h2>بازاڕی بەرهەمە کوردییەکان</h2>
+
+        <p>
+          بەرهەمە کوردییەکان و براندە ناوخۆییەکان لە یەک شوێن بدۆزەرەوە.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#products" class="primary-btn">
+            بینینی بەرهەمەکان
+          </a>
+
+          <a href="#seller" class="secondary-btn">
+            ببە بە فرۆشیار
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="search-area">
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="بگەڕێ بۆ بەرهەم یان براند..."
+        >
+
+        <button onclick="searchProducts()">
+          گەڕان
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>پۆلەکان</h2>
+
+          <p>
+            لە نێوان پۆلە جۆراوجۆرەکاندا بگەڕێ
+          </p>
+
+        </div>
+
+        <div class="categories">
+
+          <div class="category">
+            <div class="category-icon">👕</div>
+            <strong>جل و بەرگ</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">👜</div>
+            <strong>جانتا و پێڵاو</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">💄</div>
+            <strong>جوانکاری</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">🍯</div>
+            <strong>خواردن و خواردنەوە</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">🏠</div>
+            <strong>ماڵ و ژیان</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">🎁</div>
+            <strong>دیاری</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">🌿</div>
+            <strong>سروشتی</strong>
+          </div>
+
+          <div class="category">
+            <div class="category-icon">🧵</div>
+            <strong>دەستکرد</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="section products-section" id="products">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>بەرهەمەکان</h2>
+
+          <p>
+            هەڵبژاردەیەک لە بەرهەمە کوردییەکان
+          </p>
+
+        </div>
+
+        <div class="products">
+
+
+          <!-- PRODUCT 1 -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+
+              <span class="badge">
+                نوێ
+              </span>
+
+              <button class="heart">
+                ♡
+              </button>
+
+              👜
+
+            </div>
+
+            <div class="product-info">
+
+              <div class="brand">
+                براندی کوردی
+              </div>
+
+              <div class="product-name">
+                جانتای دەستکرد
+              </div>
+
+              <div class="rating">
+                ★★★★★
+              </div>
+
+              <div class="price-row">
+
+                <div class="price">
+                  $35
+                </div>
+
+                <button
+                  class="add-btn"
+                  onclick="openProduct('جانتای دەستکرد', 'براندی کوردی', '$35', '👜')"
+                >
+                  زیادکردن
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 2 -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+
+              <span class="badge">
+                نوێ
+              </span>
+
+              <button class="heart">
+                ♡
+              </button>
+
+              👕
+            </div>
+
+            <div class="product-info">
+
+              <div class="brand">
+                بەرهەمی ناوخۆیی
+              </div>
+
+              <div class="product-name">
+                جلی کوردی مۆدێرن
+              </div>
+
+              <div class="rating">
+                ★★★★★
+              </div>
+
+              <div class="price-row">
+
+                <div class="price">
+                  $45
+                </div>
+
+                <button
+                  class="add-btn"
+                  onclick="openProduct('جلی کوردی مۆدێرن', 'بەرهەمی ناوخۆیی', '$45', '👕')"
+                >
+                  زیادکردن
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 3 -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+
+              <span class="badge">
+                پڕفرۆش
+              </span>
+
+              <button class="heart">
+                ♡
+              </button>
+
+              🌿
+            </div>
+
+            <div class="product-info">
+
+              <div class="brand">
+                سروشتی کوردستان
+              </div>
+
+              <div class="product-name">
+                بەرهەمی سروشتی
+              </div>
+
+              <div class="rating">
+                ★★★★☆
+              </div>
+
+              <div class="price-row">
+
+                <div class="price">
+                  $20
+                </div>
+
+                <button
+                  class="add-btn"
+                  onclick="openProduct('بەرهەمی سروشتی', 'سروشتی کوردستان', '$20', '🌿')"
+                >
+                  زیادکردن
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 4 -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+
+              <span class="badge">
+                تایبەت
+              </span>
+
+              <button class="heart">
+                ♡
+              </button>
+
+              🎁
+
+            </div>
+
+            <div class="product-info">
+
+              <div class="brand">
+                کاری دەستی
+              </div>
+
+              <div class="product-name">
+                دیاری دەستکرد
+              </div>
+
+              <div class="rating">
+                ★★★★★
+              </div>
+
+              <div class="price-row">
+
+                <div class="price">
+                  $25
+                </div>
+
+                <button
+                  class="add-btn"
+                  onclick="openProduct('دیاری دەستکرد', 'کاری دەستی', '$25', '🎁')"
+                >
+                  زیادکردن
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCT DETAIL ================= -->
+
+    <section class="product-detail" id="productDetail">
+
+      <div class="container">
+
+        <a href="#products" class="back-btn">
+          ← گەڕانەوە بۆ بەرهەمەکان
+        </a>
+
+        <div class="detail-box">
+
+          <div class="detail-image" id="detailImage">
+            👜
+          </div>
+
+          <div class="detail-content">
+
+            <div class="detail-brand" id="detailBrand">
+              براندی کوردی
+            </div>
+
+            <h1 id="detailName">
+              جانتای دەستکرد
+            </h1>
+
+            <div class="detail-rating">
+              ★★★★★
+              <span style="color:#777;font-size:14px;">
+                (4.9)
+              </span>
+            </div>
+
+            <div class="detail-price" id="detailPrice">
+              $35
+            </div>
+
+            <p class="detail-description">
+
+              بەرهەمێکی کوردیی کوالیتی بەرز،
+              بە شێوەیەکی تایبەت و بە وردەکارییە جوانەکان
+              دروستکراوە. گونجاوە بۆ بەکارهێنانی ڕۆژانە
+              و دیاری.
+
+            </p>
+
+            <div class="quantity-title">
+              ژمارەی بەرهەم
+            </div>
+
+            <div class="quantity">
+
+              <button onclick="changeQuantity(-1)">
+                −
+              </button>
+
+              <span id="quantity">
+                1
+              </span>
+
+              <button onclick="changeQuantity(1)">
+                +
+              </button>
+
+            </div>
+
+            <div class="detail-actions">
+
+              <button class="cart-btn" onclick="addToCart()">
+                🛒 زیادکردن بۆ سەبەت
+              </button>
+
+              <button class="buy-btn" onclick="buyNow()">
+                کڕینی ئێستا
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BRANDS ================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>براندە کوردییەکان</h2>
+
+          <p>
+            براندە ناوخۆییەکان لە کوردیە
+          </p>
+
+        </div>
+
+        <div class="brands">
+
+          <div class="brand-card">
+            براندی ١
+          </div>
+
+          <div class="brand-card">
+            براندی ٢
+          </div>
+
+          <div class="brand-card">
+            براندی ٣
+          </div>
+
+          <div class="brand-card">
+            براندی ٤
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SELLER ================= -->
+
+    <section class="seller" id="seller">
+
+      <h2>
+        بەرهەمەکەت هەیە؟
+      </h2>
+
+      <p>
+        ببە بە یەکێک لە فرۆشیارەکانی کوردیە
+        و بەرهەمەکەت بە کڕیارانی زیاتر بناسێنە.
+      </p>
+
+      <button class="seller-btn" onclick="openSellerForm()">
+        ببە بە فرۆشیار
+      </button>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+      <div class="logo-text">
         کوردیە
       </div>
 
-      <div class="center-logo">
-        <img src="FB_IMG_1790953402602.jpg" alt="لۆگۆی کوردیە">
-      </div>
-
-      <div class="nav-actions">
-        <button class="nav-btn">گەڕان</button>
-        <button class="nav-btn">🛒 سەبەت</button>
-      </div>
-
-    </nav>
-  </header>
-
-
-  <!-- ================= HERO ================= -->
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <h1>کوردیە</h1>
-
-      <h2>بازاڕی بەرهەمە کوردییەکان</h2>
-
       <p>
-        بەرهەمە کوردییەکان و براندە ناوخۆییەکان لە یەک شوێن بدۆزەرەوە.
+        بازاڕی بەرهەمە کوردییەکان
       </p>
 
-      <div class="hero-buttons">
+      <p style="margin-top:15px;font-size:13px;">
+        © 2026 کوردیە — هەموو مافەکان پارێزراون.
+      </p>
 
-        <a href="#products" class="primary-btn">
-          بینینی بەرهەمەکان
-        </a>
-
-        <a href="#seller" class="secondary-btn">
-          ببە بە فرۆشیار
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= SEARCH ================= -->
-
-  <div class="search-area">
-
-    <div class="search-box">
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="بگەڕێ بۆ بەرهەم یان براند..."
-      >
-
-      <button onclick="searchProducts()">
-        گەڕان
-      </button>
-
-    </div>
+    </footer>
 
   </div>
 
 
-  <!-- ================= CATEGORIES ================= -->
+  <!-- ================= SELLER FORM PAGE ================= -->
 
-  <section class="section">
+  <section class="seller-form-page" id="sellerFormPage">
 
-    <div class="container">
+    <div class="seller-form-wrapper">
 
-      <div class="section-title">
+      <div class="seller-form-header">
 
-        <h2>پۆلەکان</h2>
+        <h1>
+          تۆمارکردن وەک فرۆشیار
+        </h1>
 
         <p>
-          لە نێوان پۆلە جۆراوجۆرەکاندا بگەڕێ
+          تکایە زانیارییەکانت بە دروستی پڕ بکەرەوە.
+          دوای ناردن، داواکارییەکەت بۆ کوردیە دەنێردرێت.
         </p>
 
       </div>
 
-      <div class="categories">
 
-        <div class="category">
-          <div class="category-icon">👕</div>
-          <strong>جل و بەرگ</strong>
-        </div>
+      <div class="seller-form-box">
 
-        <div class="category">
-          <div class="category-icon">👜</div>
-          <strong>جانتا و پێڵاو</strong>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">💄</div>
-          <strong>جوانکاری</strong>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🍯</div>
-          <strong>خواردن و خواردنەوە</strong>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🏠</div>
-          <strong>ماڵ و ژیان</strong>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🎁</div>
-          <strong>دیاری</strong>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🌿</div>
-          <strong>سروشتی</strong>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🧵</div>
-          <strong>دەستکرد</strong>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+        <form id="sellerForm" onsubmit="sendSellerToWhatsApp(event)">
 
 
-  <!-- ================= PRODUCTS ================= -->
+          <!-- SELLER NAME -->
 
-  <section class="section products-section" id="products">
+          <div class="form-group">
 
-    <div class="container">
+            <label>
+              ناوی فرۆشیار <span>*</span>
+            </label>
 
-      <div class="section-title">
-
-        <h2>بەرهەمەکان</h2>
-
-        <p>
-          هەڵبژاردەیەک لە بەرهەمە کوردییەکان
-        </p>
-
-      </div>
-
-      <div class="products">
-
-
-        <!-- PRODUCT 1 -->
-
-        <div class="product-card">
-
-          <div class="product-image">
-
-            <span class="badge">
-              نوێ
-            </span>
-
-            <button class="heart">
-              ♡
-            </button>
-
-            👜
+            <input
+              type="text"
+              id="sellerName"
+              placeholder="ناوی تەواوی خۆت بنووسە"
+              required
+            >
 
           </div>
 
-          <div class="product-info">
 
-            <div class="brand">
-              براندی کوردی
-            </div>
+          <!-- BRAND NAME -->
 
-            <div class="product-name">
-              جانتای دەستکرد
-            </div>
+          <div class="form-group">
 
-            <div class="rating">
-              ★★★★★
-            </div>
+            <label>
+              ناوی براند <span>*</span>
+            </label>
 
-            <div class="price-row">
+            <input
+              type="text"
+              id="brandName"
+              placeholder="ناوی براندەکەت بنووسە"
+              required
+            >
 
-              <div class="price">
-                $35
-              </div>
+          </div>
 
-              <button
-                class="add-btn"
-                onclick="openProduct('جانتای دەستکرد', 'براندی کوردی', '$35', '👜')"
+
+          <!-- PHONE -->
+
+          <div class="form-group">
+
+            <label>
+              ژمارەی تەلەفون <span>*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="phoneNumber"
+              placeholder="نموونە: 0750 000 0000"
+              required
+            >
+
+          </div>
+
+
+          <!-- WHATSAPP -->
+
+          <div class="form-group">
+
+            <label>
+              ژمارەی WhatsApp <span>*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="whatsappNumber"
+              placeholder="ژمارەی WhatsApp ـەکەت"
+              required
+            >
+
+          </div>
+
+
+          <!-- ADDRESS -->
+
+          <div class="form-group">
+
+            <label>
+              ناونیشانی تەواوی شوێنی کار <span>*</span>
+            </label>
+
+            <textarea
+              id="businessAddress"
+              placeholder="شار، ناوچە، شەقام، کۆڵان، نزیکترین نیشانە و هەر زانیارییەکی پێویست..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <!-- SELFIE -->
+
+          <div class="form-group">
+
+            <label>
+              وێنەی سێڵفی <span>*</span>
+            </label>
+
+            <div class="photo-upload">
+
+              <p>
+                تکایە وێنەیەکی ڕوونی خۆت هەڵبژێرە.
+              </p>
+
+              <input
+                type="file"
+                id="selfie"
+                accept="image/*"
+                capture="user"
+                required
+                onchange="previewSelfie(event)"
               >
-                زیادکردن
-              </button>
 
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 2 -->
-
-        <div class="product-card">
-
-          <div class="product-image">
-
-            <span class="badge">
-              نوێ
-            </span>
-
-            <button class="heart">
-              ♡
-            </button>
-
-            👕
-          </div>
-
-          <div class="product-info">
-
-            <div class="brand">
-              بەرهەمی ناوخۆیی
-            </div>
-
-            <div class="product-name">
-              جلی کوردی مۆدێرن
-            </div>
-
-            <div class="rating">
-              ★★★★★
-            </div>
-
-            <div class="price-row">
-
-              <div class="price">
-                $45
-              </div>
-
-              <button
-                class="add-btn"
-                onclick="openProduct('جلی کوردی مۆدێرن', 'بەرهەمی ناوخۆیی', '$45', '👕')"
+              <img
+                id="selfiePreview"
+                class="selfie-preview"
+                alt="پێشبینینی وێنە"
               >
-                زیادکردن
-              </button>
 
             </div>
 
           </div>
 
-        </div>
+
+          <div class="required-note">
+            * هەموو خانەکانی سەرەوە پێویستن.
+          </div>
 
 
-        <!-- PRODUCT 3 -->
+          <div class="form-actions">
 
-        <div class="product-card">
-
-          <div class="product-image">
-
-            <span class="badge">
-              پڕفرۆش
-            </span>
-
-            <button class="heart">
-              ♡
+            <button
+              type="submit"
+              class="send-whatsapp-btn"
+            >
+              ناردنی داواکاری بۆ WhatsApp
             </button>
 
-            🌿
-          </div>
-
-          <div class="product-info">
-
-            <div class="brand">
-              سروشتی کوردستان
-            </div>
-
-            <div class="product-name">
-              بەرهەمی سروشتی
-            </div>
-
-            <div class="rating">
-              ★★★★☆
-            </div>
-
-            <div class="price-row">
-
-              <div class="price">
-                $20
-              </div>
-
-              <button
-                class="add-btn"
-                onclick="openProduct('بەرهەمی سروشتی', 'سروشتی کوردستان', '$20', '🌿')"
-              >
-                زیادکردن
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-
-        <div class="product-card">
-
-          <div class="product-image">
-
-            <span class="badge">
-              تایبەت
-            </span>
-
-            <button class="heart">
-              ♡
+            <button
+              type="button"
+              class="close-form-btn"
+              onclick="closeSellerForm()"
+            >
+              گەڕانەوە
             </button>
 
-            🎁
-
           </div>
 
-          <div class="product-info">
-
-            <div class="brand">
-              کاری دەستی
-            </div>
-
-            <div class="product-name">
-              دیاری دەستکرد
-            </div>
-
-            <div class="rating">
-              ★★★★★
-            </div>
-
-            <div class="price-row">
-
-              <div class="price">
-                $25
-              </div>
-
-              <button
-                class="add-btn"
-                onclick="openProduct('دیاری دەستکرد', 'کاری دەستی', '$25', '🎁')"
-              >
-                زیادکردن
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
+        </form>
 
       </div>
 
     </div>
 
   </section>
-
-
-  <!-- ================= PRODUCT DETAIL ================= -->
-
-  <section class="product-detail" id="productDetail">
-
-    <div class="container">
-
-      <a href="#products" class="back-btn">
-        ← گەڕانەوە بۆ بەرهەمەکان
-      </a>
-
-      <div class="detail-box">
-
-        <div class="detail-image" id="detailImage">
-          👜
-        </div>
-
-        <div class="detail-content">
-
-          <div class="detail-brand" id="detailBrand">
-            براندی کوردی
-          </div>
-
-          <h1 id="detailName">
-            جانتای دەستکرد
-          </h1>
-
-          <div class="detail-rating">
-            ★★★★★
-            <span style="color:#777;font-size:14px;">
-              (4.9)
-            </span>
-          </div>
-
-          <div class="detail-price" id="detailPrice">
-            $35
-          </div>
-
-          <p class="detail-description">
-
-            بەرهەمێکی کوردیی کوالیتی بەرز،
-            بە شێوەیەکی تایبەت و بە وردەکارییە جوانەکان
-            دروستکراوە. گونجاوە بۆ بەکارهێنانی ڕۆژانە
-            و دیاری.
-
-          </p>
-
-          <div class="quantity-title">
-            ژمارەی بەرهەم
-          </div>
-
-          <div class="quantity">
-
-            <button onclick="changeQuantity(-1)">
-              −
-            </button>
-
-            <span id="quantity">
-              1
-            </span>
-
-            <button onclick="changeQuantity(1)">
-              +
-            </button>
-
-          </div>
-
-          <div class="detail-actions">
-
-            <button class="cart-btn" onclick="addToCart()">
-              🛒 زیادکردن بۆ سەبەت
-            </button>
-
-            <button class="buy-btn" onclick="buyNow()">
-              کڕینی ئێستا
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= BRANDS ================= -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>براندە کوردییەکان</h2>
-
-        <p>
-          براندە ناوخۆییەکان لە کوردیە
-        </p>
-
-      </div>
-
-      <div class="brands">
-
-        <div class="brand-card">
-          براندی ١
-        </div>
-
-        <div class="brand-card">
-          براندی ٢
-        </div>
-
-        <div class="brand-card">
-          براندی ٣
-        </div>
-
-        <div class="brand-card">
-          براندی ٤
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= SELLER ================= -->
-
-  <section class="seller" id="seller">
-
-    <h2>
-      بەرهەمەکەت هەیە؟
-    </h2>
-
-    <p>
-      ببە بە یەکێک لە فرۆشیارەکانی کوردیە
-      و بەرهەمەکەت بە کڕیارانی زیاتر بناسێنە.
-    </p>
-
-    <button class="seller-btn">
-      ببە بە فرۆشیار
-    </button>
-
-  </section>
-
-
-  <!-- ================= FOOTER ================= -->
-
-  <footer>
-
-    <div class="logo-text">
-      کوردیە
-    </div>
-
-    <p>
-      بازاڕی بەرهەمە کوردییەکان
-    </p>
-
-    <p style="margin-top:15px;font-size:13px;">
-      © 2026 کوردیە — هەموو مافەکان پارێزراون.
-    </p>
-
-  </footer>
 
 
   <!-- ================= JAVASCRIPT ================= -->
@@ -1171,6 +1512,9 @@
   <script>
 
     let currentQuantity = 1;
+
+
+    /* ================= PRODUCT ================= */
 
     function openProduct(name, brand, price, image) {
 
@@ -1184,7 +1528,8 @@
 
       currentQuantity = 1;
 
-      document.getElementById("quantity").innerText = currentQuantity;
+      document.getElementById("quantity").innerText =
+        currentQuantity;
 
       document.getElementById("productDetail")
         .scrollIntoView({
@@ -1233,7 +1578,9 @@
 
       if (value === "") {
 
-        alert("تکایە ناوی بەرهەم یان براند بنووسە.");
+        alert(
+          "تکایە ناوی بەرهەم یان براند بنووسە."
+        );
 
         return;
 
@@ -1241,6 +1588,153 @@
 
       alert(
         "گەڕان بۆ: " + value
+      );
+
+    }
+
+
+    /* ================= SELLER FORM ================= */
+
+    function openSellerForm() {
+
+      document.getElementById("mainWebsite").style.display =
+        "none";
+
+      document.getElementById("sellerFormPage").style.display =
+        "block";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function closeSellerForm() {
+
+      document.getElementById("sellerFormPage").style.display =
+        "none";
+
+      document.getElementById("mainWebsite").style.display =
+        "block";
+
+      document.getElementById("seller").scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* ================= SELFIE PREVIEW ================= */
+
+    function previewSelfie(event) {
+
+      const file = event.target.files[0];
+
+      const preview =
+        document.getElementById("selfiePreview");
+
+      if (!file) {
+
+        preview.style.display = "none";
+
+        preview.src = "";
+
+        return;
+
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+
+        preview.src = e.target.result;
+
+        preview.style.display = "block";
+
+      };
+
+      reader.readAsDataURL(file);
+
+    }
+
+
+    /* ================= SEND TO WHATSAPP ================= */
+
+    function sendSellerToWhatsApp(event) {
+
+      event.preventDefault();
+
+
+      const sellerName =
+        document.getElementById("sellerName").value.trim();
+
+      const brandName =
+        document.getElementById("brandName").value.trim();
+
+      const phoneNumber =
+        document.getElementById("phoneNumber").value.trim();
+
+      const whatsappNumber =
+        document.getElementById("whatsappNumber").value.trim();
+
+      const businessAddress =
+        document.getElementById("businessAddress").value.trim();
+
+      const selfie =
+        document.getElementById("selfie").files[0];
+
+
+      if (
+        !sellerName ||
+        !brandName ||
+        !phoneNumber ||
+        !whatsappNumber ||
+        !businessAddress ||
+        !selfie
+      ) {
+
+        alert(
+          "تکایە هەموو خانە پێویستەکان پڕ بکەرەوە."
+        );
+
+        return;
+
+      }
+
+
+      const message =
+`📋 داواکاری تۆمارکردنی فرۆشیار - کوردیە
+
+👤 ناوی فرۆشیار:
+${sellerName}
+
+🏪 ناوی براند:
+${brandName}
+
+📞 ژمارەی تەلەفون:
+${phoneNumber}
+
+💬 ژمارەی WhatsApp:
+${whatsappNumber}
+
+📍 ناونیشانی تەواوی شوێنی کار:
+${businessAddress}
+
+📸 وێنەی سێڵفی:
+وێنەکە لەگەڵ ئەم پەیامەدا دەنێرم.
+
+تکایە داواکارییەکەم پشکنین بکە.`;
+
+      const whatsappURL =
+        "https://wa.me/qr/TZGGZG6OVWXOM1?text=" +
+        encodeURIComponent(message);
+
+
+      window.open(
+        whatsappURL,
+        "_blank"
       );
 
     }
