@@ -46,7 +46,6 @@
       height: 90px;
       margin: auto;
       padding: 0 25px;
-
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -292,6 +291,13 @@
       justify-content: center;
       font-size: 80px;
       position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .badge {
@@ -304,6 +310,7 @@
       border-radius: 8px;
       font-size: 12px;
       font-weight: bold;
+      z-index: 2;
     }
 
     .heart {
@@ -316,6 +323,7 @@
       border: none;
       background: white;
       font-size: 18px;
+      z-index: 2;
     }
 
     .product-info {
@@ -395,7 +403,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 150px;
+      overflow: hidden;
+    }
+
+    .detail-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
     }
 
     .detail-content {
@@ -424,6 +439,17 @@
       color: #c69d00;
       font-weight: 900;
       margin: 20px 0;
+    }
+
+    .detail-category {
+      display: inline-block;
+      background: #fff4b8;
+      color: #8a6b00;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
     .detail-description {
@@ -621,7 +647,10 @@
 
       .detail-image {
         min-height: 320px;
-        font-size: 100px;
+      }
+
+      .detail-image img {
+        height: 320px;
       }
 
       .detail-content h1 {
@@ -840,7 +869,7 @@
         <div class="products">
 
 
-          <!-- PRODUCT 1 -->
+          <!-- ================= PRODUCT 1 ================= -->
 
           <div class="product-card">
 
@@ -854,18 +883,21 @@
                 ♡
               </button>
 
-              👜
+              <img
+                src="41f2883491daa97b85ec25b7966b46a9.jpg"
+                alt="هەنگوینی شاخ"
+              >
 
             </div>
 
             <div class="product-info">
 
               <div class="brand">
-                براندی کوردی
+                kardу stor
               </div>
 
               <div class="product-name">
-                جانتای دەستکرد
+                هەنگوینی شاخ
               </div>
 
               <div class="rating">
@@ -875,19 +907,21 @@
               <div class="price-row">
 
                 <div class="price">
-                  $35
+                  9,000 دینار
                 </div>
 
                 <button
                   class="add-btn"
                   onclick="openProduct(
-                    'جانتای دەستکرد',
-                    'براندی کوردی',
-                    '$35',
-                    '👜'
+                    'هەنگوینی شاخ',
+                    'kardy stor',
+                    '9,000 دینار',
+                    '41f2883491daa97b85ec25b7966b46a9.jpg',
+                    'خواردن',
+                    'هەنگوینێکی زۆر موهیمە'
                   )"
                 >
-                  زیادکردن
+                  بینین
                 </button>
 
               </div>
@@ -897,7 +931,7 @@
           </div>
 
 
-          <!-- PRODUCT 2 -->
+          <!-- ================= PRODUCT 2 ================= -->
 
           <div class="product-card">
 
@@ -940,10 +974,12 @@
                     'جلی کوردی مۆدێرن',
                     'بەرهەمی ناوخۆیی',
                     '$45',
-                    '👕'
+                    '',
+                    'جل و بەرگ',
+                    'بەرهەمێکی ناوخۆیی'
                   )"
                 >
-                  زیادکردن
+                  بینین
                 </button>
 
               </div>
@@ -953,7 +989,7 @@
           </div>
 
 
-          <!-- PRODUCT 3 -->
+          <!-- ================= PRODUCT 3 ================= -->
 
           <div class="product-card">
 
@@ -996,10 +1032,12 @@
                     'بەرهەمی سروشتی',
                     'سروشتی کوردستان',
                     '$20',
-                    '🌿'
+                    '',
+                    'سروشتی',
+                    'بەرهەمێکی سروشتی'
                   )"
                 >
-                  زیادکردن
+                  بینین
                 </button>
 
               </div>
@@ -1009,7 +1047,7 @@
           </div>
 
 
-          <!-- PRODUCT 4 -->
+          <!-- ================= PRODUCT 4 ================= -->
 
           <div class="product-card">
 
@@ -1053,10 +1091,12 @@
                     'دیاری دەستکرد',
                     'کاری دەستی',
                     '$25',
-                    '🎁'
+                    '',
+                    'دیاری',
+                    'بەرهەمێکی دەستکرد'
                   )"
                 >
-                  زیادکردن
+                  بینین
                 </button>
 
               </div>
@@ -1094,7 +1134,13 @@
             class="detail-image"
             id="detailImage"
           >
-            👜
+
+            <img
+              src="41f2883491daa97b85ec25b7966b46a9.jpg"
+              id="detailProductImage"
+              alt="هەنگوینی شاخ"
+            >
+
           </div>
 
           <div class="detail-content">
@@ -1103,12 +1149,19 @@
               class="detail-brand"
               id="detailBrand"
             >
-              براندی کوردی
+              kardу stor
             </div>
 
             <h1 id="detailName">
-              جانتای دەستکرد
+              هەنگوینی شاخ
             </h1>
+
+            <div
+              class="detail-category"
+              id="detailCategory"
+            >
+              خواردن
+            </div>
 
             <div class="detail-rating">
 
@@ -1126,16 +1179,14 @@
               class="detail-price"
               id="detailPrice"
             >
-              $35
+              9,000 دینار
             </div>
 
-            <p class="detail-description">
-
-              بەرهەمێکی کوردیی کوالیتی بەرز،
-              بە شێوەیەکی تایبەت و بە وردەکارییە جوانەکان
-              دروستکراوە. گونجاوە بۆ بەکارهێنانی ڕۆژانە
-              و دیاری.
-
+            <p
+              class="detail-description"
+              id="detailDescription"
+            >
+              هەنگوینێکی زۆر موهیمە
             </p>
 
             <div class="quantity-title">
@@ -1206,7 +1257,7 @@
         <div class="brands">
 
           <div class="brand-card">
-            براندی ١
+            kardу stor
           </div>
 
           <div class="brand-card">
@@ -1292,7 +1343,9 @@
       name,
       brand,
       price,
-      image
+      image,
+      category,
+      description
     ) {
 
       document.getElementById(
@@ -1308,14 +1361,37 @@
       ).innerText = price;
 
       document.getElementById(
-        "detailImage"
-      ).innerText = image;
+        "detailCategory"
+      ).innerText = category;
+
+      document.getElementById(
+        "detailDescription"
+      ).innerText = description;
+
+
+      const detailImage =
+        document.getElementById(
+          "detailProductImage"
+        );
+
+      if (image) {
+
+        detailImage.src = image;
+        detailImage.style.display = "block";
+
+      } else {
+
+        detailImage.style.display = "none";
+
+      }
+
 
       currentQuantity = 1;
 
       document.getElementById(
         "quantity"
       ).innerText = currentQuantity;
+
 
       document.getElementById(
         "productDetail"
