@@ -944,7 +944,6 @@
 
         <div class="products">
 
-
           <!-- PRODUCT 1 -->
 
           <div class="product-card">
@@ -1660,9 +1659,9 @@
     }
 
 
-    /* ================= SEND TO WHATSAPP ================= */
+    /* ================= SEND SELLER TO WHATSAPP ================= */
 
-    function sendSellerToWhatsApp(event) {
+    async function sendSellerToWhatsApp(event) {
 
       event.preventDefault();
 
@@ -1686,6 +1685,8 @@
         document.getElementById("selfie").files[0];
 
 
+      /* ================= VALIDATION ================= */
+
       if (
         !sellerName ||
         !brandName ||
@@ -1703,6 +1704,8 @@
 
       }
 
+
+      /* ================= MESSAGE ================= */
 
       const message =
 `📋 داواکاری تۆمارکردنی فرۆشیار - کوردیە
@@ -1727,15 +1730,82 @@ ${businessAddress}
 
 تکایە داواکارییەکەم پشکنین بکە.`;
 
+
+      /* ================= FILE FOR SHARE ================= */
+
+      try {
+
+        const fileName =
+          selfie.name || "KURDIA-SELLER-SELFIE.jpg";
+
+        const fileType =
+          selfie.type || "image/jpeg";
+
+        const selfieFile =
+          new File(
+            [selfie],
+            fileName,
+            {
+              type: fileType
+            }
+          );
+
+
+        /* ================= ANDROID SHARE ================= */
+
+        if (
+          navigator.share &&
+          navigator.canShare &&
+          navigator.canShare({
+            files: [selfieFile]
+          })
+        ) {
+
+          await navigator.share({
+
+            title:
+              "داواکاری فرۆشیاری کوردیە",
+
+            text:
+              message,
+
+            files:
+              [selfieFile]
+
+          });
+
+          return;
+
+        }
+
+      } catch (error) {
+
+        /*
+          ئەگەر بەکارهێنەر Share ـەکەی داخست،
+          هیچ شتێک مەکە.
+        */
+
+        if (
+          error &&
+          error.name === "AbortError"
+        ) {
+
+          return;
+
+        }
+
+      }
+
+
+      /* ================= WHATSAPP FALLBACK ================= */
+
       const whatsappURL =
         "https://wa.me/qr/TZGGZG6OVWXOM1?text=" +
         encodeURIComponent(message);
 
 
-      window.open(
-        whatsappURL,
-        "_blank"
-      );
+      window.location.href =
+        whatsappURL;
 
     }
 
