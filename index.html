@@ -653,6 +653,10 @@
       border-radius: 12px;
       font-size: 17px;
       font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .close-form-btn {
@@ -784,8 +788,6 @@
 
   <div id="mainWebsite">
 
-    <!-- ================= HEADER ================= -->
-
     <header>
       <nav class="navbar">
 
@@ -798,11 +800,15 @@
         </div>
 
         <div class="nav-actions">
-          <button class="nav-btn">گەڕان</button>
+
+          <button class="nav-btn">
+            گەڕان
+          </button>
 
           <button class="nav-btn">
             🛒 سەبەت
           </button>
+
         </div>
 
       </nav>
@@ -815,9 +821,13 @@
 
       <div class="hero-content">
 
-        <h1>کوردیە</h1>
+        <h1>
+          کوردیە
+        </h1>
 
-        <h2>بازاڕی بەرهەمە کوردییەکان</h2>
+        <h2>
+          بازاڕی بەرهەمە کوردییەکان
+        </h2>
 
         <p>
           بەرهەمە کوردییەکان و براندە ناوخۆییەکان لە یەک شوێن بدۆزەرەوە.
@@ -869,7 +879,9 @@
 
         <div class="section-title">
 
-          <h2>پۆلەکان</h2>
+          <h2>
+            پۆلەکان
+          </h2>
 
           <p>
             لە نێوان پۆلە جۆراوجۆرەکاندا بگەڕێ
@@ -934,7 +946,9 @@
 
         <div class="section-title">
 
-          <h2>بەرهەمەکان</h2>
+          <h2>
+            بەرهەمەکان
+          </h2>
 
           <p>
             هەڵبژاردەیەک لە بەرهەمە کوردییەکان
@@ -943,6 +957,7 @@
         </div>
 
         <div class="products">
+
 
           <!-- PRODUCT 1 -->
 
@@ -1251,7 +1266,9 @@
 
         <div class="section-title">
 
-          <h2>براندە کوردییەکان</h2>
+          <h2>
+            براندە کوردییەکان
+          </h2>
 
           <p>
             براندە ناوخۆییەکان لە کوردیە
@@ -1347,7 +1364,7 @@
 
       <div class="seller-form-box">
 
-        <form id="sellerForm" onsubmit="sendSellerToWhatsApp(event)">
+        <form id="sellerForm">
 
 
           <!-- SELLER NAME -->
@@ -1480,12 +1497,14 @@
 
           <div class="form-actions">
 
-            <button
-              type="submit"
+            <a
+              href="https://wa.me/qr/TZGGZG6OVWXOM1"
               class="send-whatsapp-btn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               ناردنی داواکاری بۆ WhatsApp
-            </button>
+            </a>
 
             <button
               type="button"
@@ -1655,157 +1674,6 @@
       };
 
       reader.readAsDataURL(file);
-
-    }
-
-
-    /* ================= SEND SELLER TO WHATSAPP ================= */
-
-    async function sendSellerToWhatsApp(event) {
-
-      event.preventDefault();
-
-
-      const sellerName =
-        document.getElementById("sellerName").value.trim();
-
-      const brandName =
-        document.getElementById("brandName").value.trim();
-
-      const phoneNumber =
-        document.getElementById("phoneNumber").value.trim();
-
-      const whatsappNumber =
-        document.getElementById("whatsappNumber").value.trim();
-
-      const businessAddress =
-        document.getElementById("businessAddress").value.trim();
-
-      const selfie =
-        document.getElementById("selfie").files[0];
-
-
-      /* ================= VALIDATION ================= */
-
-      if (
-        !sellerName ||
-        !brandName ||
-        !phoneNumber ||
-        !whatsappNumber ||
-        !businessAddress ||
-        !selfie
-      ) {
-
-        alert(
-          "تکایە هەموو خانە پێویستەکان پڕ بکەرەوە."
-        );
-
-        return;
-
-      }
-
-
-      /* ================= MESSAGE ================= */
-
-      const message =
-`📋 داواکاری تۆمارکردنی فرۆشیار - کوردیە
-
-👤 ناوی فرۆشیار:
-${sellerName}
-
-🏪 ناوی براند:
-${brandName}
-
-📞 ژمارەی تەلەفون:
-${phoneNumber}
-
-💬 ژمارەی WhatsApp:
-${whatsappNumber}
-
-📍 ناونیشانی تەواوی شوێنی کار:
-${businessAddress}
-
-📸 وێنەی سێڵفی:
-وێنەکە لەگەڵ ئەم پەیامەدا دەنێرم.
-
-تکایە داواکارییەکەم پشکنین بکە.`;
-
-
-      /* ================= FILE FOR SHARE ================= */
-
-      try {
-
-        const fileName =
-          selfie.name || "KURDIA-SELLER-SELFIE.jpg";
-
-        const fileType =
-          selfie.type || "image/jpeg";
-
-        const selfieFile =
-          new File(
-            [selfie],
-            fileName,
-            {
-              type: fileType
-            }
-          );
-
-
-        /* ================= ANDROID SHARE ================= */
-
-        if (
-          navigator.share &&
-          navigator.canShare &&
-          navigator.canShare({
-            files: [selfieFile]
-          })
-        ) {
-
-          await navigator.share({
-
-            title:
-              "داواکاری فرۆشیاری کوردیە",
-
-            text:
-              message,
-
-            files:
-              [selfieFile]
-
-          });
-
-          return;
-
-        }
-
-      } catch (error) {
-
-        /*
-          ئەگەر بەکارهێنەر Share ـەکەی داخست،
-          هیچ شتێک مەکە.
-        */
-
-        if (
-          error &&
-          error.name === "AbortError"
-        ) {
-
-          return;
-
-        }
-
-      }
-
-
-      /* ================= WHATSAPP FALLBACK ================= */
-
-      const whatsappURL =
-        "https://wa.me/qr/TZGGZG6OVWXOM1?text=" +
-        encodeURIComponent(message);
-
-
-      window.location.href =
-        whatsappURL;
 
     }
 
