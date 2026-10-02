@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ku" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KURDIA — Made in Kurdistan</title>
+  <title>کوردیە — بەرهەمی کوردی</title>
 
   <style>
     * {
@@ -14,196 +14,616 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #fffdf5;
-      color: #111;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f8f8f6;
+      color: #151515;
+      direction: rtl;
     }
 
+    /* HEADER */
+
     header {
-      background: #111;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: rgba(17,17,17,0.97);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,210,28,0.15);
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+      padding: 16px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
       color: #ffd21c;
-      font-size: 30px;
+      font-size: 31px;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      white-space: nowrap;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #ffd21c;
-    }
-
-    .hero {
-      min-height: 78vh;
+    .nav-links {
       display: flex;
-      justify-content: center;
+      gap: 28px;
       align-items: center;
-      text-align: center;
-      padding: 60px 20px;
-      background:
-        radial-gradient(circle at top, #fff4a8, transparent 45%),
-        linear-gradient(135deg, #fffdf5, #fff1a8);
     }
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 80px);
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 span {
-      color: #e5b800;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #555;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-      margin-bottom: 35px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #111;
-      color: #ffd21c;
-      padding: 16px 35px;
-      border-radius: 10px;
+    .nav-links a {
+      color: #fff;
       text-decoration: none;
+      font-size: 15px;
       font-weight: bold;
-      border: 2px solid #ffd21c;
       transition: 0.3s;
     }
 
-    .btn:hover {
+    .nav-links a:hover {
+      color: #ffd21c;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: #222;
+      border: 1px solid #333;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+      border-color: #ffd21c;
+      color: #ffd21c;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 78vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255,210,28,0.25), transparent 35%),
+        linear-gradient(135deg, #fffdf5, #fff2a5);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.08);
+      top: -250px;
+      left: -180px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .small-title {
+      display: inline-block;
+      background: #111;
+      color: #ffd21c;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #e4b900;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #555;
+      font-size: 20px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn {
+      background: #111;
+      color: #ffd21c;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #111;
+      transition: 0.3s;
+    }
+
+    .primary-btn:hover {
       background: #ffd21c;
       color: #111;
     }
 
-    .section {
-      padding: 70px 6%;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .category {
-      background: white;
-      padding: 35px 20px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      font-size: 18px;
+    .secondary-btn {
+      background: rgba(255,255,255,0.7);
+      color: #111;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
       font-weight: bold;
+      border: 2px solid #111;
       transition: 0.3s;
-      border: 1px solid #eee;
     }
 
-    .category:hover {
-      transform: translateY(-6px);
-      border-color: #ffd21c;
-    }
-
-    .category-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .about {
+    .secondary-btn:hover {
       background: #111;
       color: white;
     }
 
+    /* SEARCH */
+
+    .search-section {
+      max-width: 1100px;
+      margin: -35px auto 0;
+      position: relative;
+      z-index: 20;
+      padding: 0 20px;
+    }
+
+    .search-box {
+      background: white;
+      padding: 15px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 16px;
+      padding: 12px 15px;
+      background: #f6f6f6;
+      border-radius: 12px;
+    }
+
+    .search-box button {
+      border: none;
+      background: #111;
+      color: #ffd21c;
+      padding: 0 25px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* GENERAL SECTION */
+
+    .section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 90px 25px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-header h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: #777;
+      font-size: 16px;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .category {
+      background: white;
+      border-radius: 20px;
+      padding: 35px 20px;
+      text-align: center;
+      border: 1px solid #eee;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: 0.35s;
+      cursor: pointer;
+    }
+
+    .category:hover {
+      transform: translateY(-8px);
+      border-color: #ffd21c;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+    }
+
+    .category-icon {
+      width: 65px;
+      height: 65px;
+      margin: auto auto 18px;
+      border-radius: 18px;
+      background: #fff4b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .category h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .category p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+    }
+
+    .product-image {
+      height: 230px;
+      background: linear-gradient(135deg, #fff3a6, #f1f1ed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+      position: relative;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #111;
+      color: #ffd21c;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-brand {
+      color: #999;
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .product h3 {
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 900;
+      color: #111;
+    }
+
+    .add-btn {
+      border: none;
+      background: #111;
+      color: #ffd21c;
+      padding: 9px 13px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    /* BRANDS */
+
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .brand {
+      background: #111;
+      color: white;
+      min-height: 160px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .brand:hover {
+      transform: translateY(-6px);
+      background: #1c1c1c;
+    }
+
+    .brand strong {
+      color: #ffd21c;
+      font-size: 24px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #111;
+      color: white;
+      max-width: none;
+      padding: 90px 25px;
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
     .about h2 {
       color: #ffd21c;
+      font-size: 40px;
+      margin-bottom: 20px;
     }
 
     .about p {
-      max-width: 750px;
-      margin: auto;
       color: #ddd;
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 2;
     }
+
+    /* SELLER */
+
+    .seller {
+      background: #ffd21c;
+      max-width: none;
+      text-align: center;
+      padding: 70px 25px;
+    }
+
+    .seller h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .seller p {
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 17px;
+    }
+
+    .seller-btn {
+      display: inline-block;
+      background: #111;
+      color: #ffd21c;
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
 
     footer {
       background: #080808;
       color: white;
-      text-align: center;
-      padding: 40px 20px;
+      padding: 55px 25px 25px;
     }
 
-    footer strong {
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 40px;
+    }
+
+    .footer-logo {
       color: #ffd21c;
-      font-size: 25px;
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 15px;
     }
 
     footer p {
-      margin-top: 10px;
-      color: #aaa;
+      color: #999;
+      line-height: 1.8;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    footer a {
+      display: block;
+      color: #999;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    footer a:hover {
+      color: #ffd21c;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: auto;
+      border-top: 1px solid #222;
+      padding-top: 20px;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .categories,
+      .products,
+      .brands {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 600px) {
 
-      header {
-        padding: 15px 20px;
+      .navbar {
+        padding: 14px 18px;
       }
 
       .logo {
-        font-size: 24px;
+        font-size: 25px;
       }
 
-      nav a {
-        margin-left: 8px;
-        font-size: 11px;
+      .nav-actions .nav-btn:first-child {
+        display: none;
       }
 
       .hero {
         min-height: 70vh;
+        padding: 60px 18px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
       }
 
       .hero p {
         font-size: 17px;
       }
 
-      .section {
-        padding: 55px 20px;
+      .search-box {
+        padding: 10px;
       }
 
-      .section h2 {
+      .search-box button {
+        padding: 0 15px;
+      }
+
+      .section {
+        padding: 65px 18px;
+      }
+
+      .section-header h2 {
         font-size: 30px;
+      }
+
+      .categories,
+      .products,
+      .brands {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .category {
+        padding: 25px 10px;
+      }
+
+      .product-image {
+        height: 170px;
+      }
+
+      .product-info {
+        padding: 13px;
+      }
+
+      .product h3 {
+        font-size: 14px;
+      }
+
+      .price {
+        font-size: 15px;
+      }
+
+      .add-btn {
+        font-size: 11px;
+        padding: 8px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
     }
   </style>
@@ -211,20 +631,29 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVBAR -->
 
   <header>
+    <div class="navbar">
 
-    <div class="logo">
-      KURDIA
+      <div class="logo">
+        کوردیە
+      </div>
+
+      <nav class="nav-links">
+        <a href="#">سەرەتا</a>
+        <a href="#categories">بەشەکان</a>
+        <a href="#products">بەرهەمەکان</a>
+        <a href="#brands">براندەکان</a>
+        <a href="#about">دەربارەی ئێمە</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn">گەڕان</button>
+        <button class="nav-btn">سەبەت</button>
+      </div>
+
     </div>
-
-    <nav>
-      <a href="#">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#about">About</a>
-    </nav>
-
   </header>
 
 
@@ -232,78 +661,317 @@
 
   <section class="hero">
 
-    <div>
+    <div class="hero-content">
+
+      <div class="small-title">
+        بەرهەمی کوردی
+      </div>
 
       <h1>
-        Discover <span>KURDIA</span>
+        بەخێربێیت بۆ <span>کوردیە</span>
       </h1>
 
       <p>
-        Discover Kurdish brands and locally made products
-        from Kurdistan — all in one place.
+        شوێنی تایبەتی کڕین و فرۆشتنی بەرهەمە کوردییەکان.
+        براند و بەرهەمە ناوخۆییەکانت لە یەک شوێن بدۆزەرەوە.
       </p>
 
-      <a href="#categories" class="btn">
-        Explore Products
-      </a>
+      <div class="hero-buttons">
+
+        <a href="#products" class="primary-btn">
+          بینینی بەرهەمەکان
+        </a>
+
+        <a href="#seller" class="secondary-btn">
+          ببە بە فرۆشیار
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
 
+  <!-- SEARCH -->
+
+  <div class="search-section">
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        placeholder="بەدوای بەرهەم یان براند بگەڕێ..."
+      >
+
+      <button>
+        گەڕان
+      </button>
+
+    </div>
+
+  </div>
+
+
   <!-- CATEGORIES -->
 
   <section class="section" id="categories">
 
-    <h2>
-      Shop by Category
-    </h2>
+    <div class="section-header">
 
-    <p class="section-subtitle">
-      Discover products made by Kurdish brands and local creators.
-    </p>
+      <h2>
+        بەشەکان
+      </h2>
+
+      <p>
+        ئەو جۆرە بەرهەمەی بەدوای دەگەڕێیت بە ئاسانی بدۆزەرەوە
+      </p>
+
+    </div>
 
     <div class="categories">
 
       <div class="category">
         <div class="category-icon">👕</div>
-        Fashion
+        <h3>جل و بەرگ</h3>
+        <p>بەرهەمەکانی جلوبەرگ</p>
       </div>
 
       <div class="category">
         <div class="category-icon">👜</div>
-        Bags & Shoes
+        <h3>جانتا و پێڵاو</h3>
+        <p>جانتا و پێڵاوی کوردی</p>
       </div>
 
       <div class="category">
         <div class="category-icon">💄</div>
-        Beauty
+        <h3>جوانکاری</h3>
+        <p>بەرهەمەکانی جوانکاری</p>
       </div>
 
       <div class="category">
         <div class="category-icon">🍯</div>
-        Food & Drinks
+        <h3>خواردن و خواردنەوە</h3>
+        <p>بەرهەمی ناوخۆیی</p>
       </div>
 
       <div class="category">
         <div class="category-icon">🏠</div>
-        Home
+        <h3>ماڵ و ژیان</h3>
+        <p>کەلوپەل و شتی ماڵ</p>
       </div>
 
       <div class="category">
         <div class="category-icon">🎁</div>
-        Gifts
+        <h3>دیاری</h3>
+        <p>بەرهەمی تایبەت بۆ دیاری</p>
       </div>
 
       <div class="category">
         <div class="category-icon">🌿</div>
-        Natural Products
+        <h3>سروشتی</h3>
+        <p>بەرهەمە سروشتییەکان</p>
       </div>
 
       <div class="category">
         <div class="category-icon">✨</div>
-        Handmade
+        <h3>دەستکرد</h3>
+        <p>کاری دەستی و هونەری</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+
+  <section class="section" id="products">
+
+    <div class="section-header">
+
+      <h2>
+        بەرهەمە نوێکان
+      </h2>
+
+      <p>
+        هەڵبژاردەیەک لە بەرهەمە بەناوبانگەکان
+      </p>
+
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+
+        <div class="product-image">
+          <span class="product-badge">نوێ</span>
+          👜
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-brand">
+            براندی کوردی
+          </div>
+
+          <h3>
+            جانتای دەستکرد
+          </h3>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              $35
+            </span>
+
+            <button class="add-btn">
+              زیادکردن
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">
+          <span class="product-badge">باشترین</span>
+          👕
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-brand">
+            براندی کوردی
+          </div>
+
+          <h3>
+            جلێکی کوردی
+          </h3>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              $45
+            </span>
+
+            <button class="add-btn">
+              زیادکردن
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">
+          🍯
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-brand">
+            بەرهەمی ناوخۆیی
+          </div>
+
+          <h3>
+            هەنگوینی سروشتی
+          </h3>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              $18
+            </span>
+
+            <button class="add-btn">
+              زیادکردن
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">
+          🌿
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-brand">
+            براندی کوردی
+          </div>
+
+          <h3>
+            بەرهەمی سروشتی
+          </h3>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              $25
+            </span>
+
+            <button class="add-btn">
+              زیادکردن
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BRANDS -->
+
+  <section class="section" id="brands">
+
+    <div class="section-header">
+
+      <h2>
+        براندە کوردییەکان
+      </h2>
+
+      <p>
+        براندە ناوخۆییەکانت لە کوردیە بدۆزەرەوە
+      </p>
+
+    </div>
+
+    <div class="brands">
+
+      <div class="brand">
+        <strong>براندی یەکەم</strong>
+      </div>
+
+      <div class="brand">
+        <strong>براندی دووەم</strong>
+      </div>
+
+      <div class="brand">
+        <strong>براندی سێیەم</strong>
+      </div>
+
+      <div class="brand">
+        <strong>براندی چوارەم</strong>
       </div>
 
     </div>
@@ -313,21 +981,42 @@
 
   <!-- ABOUT -->
 
-  <section class="section about" id="about">
+  <section class="about" id="about">
+
+    <div class="about-content">
+
+      <h2>
+        کوردیە چییە؟
+      </h2>
+
+      <p>
+        کوردیە بازاڕێکی ئەلیکترۆنییە بۆ کۆکردنەوەی
+        براند و بەرهەمە کوردییەکان لە یەک شوێن.
+        ئامانجمان ئەوەیە بەرهەمهێنەر و براندە ناوخۆییەکان
+        بە کڕیارانیانەوە پەیوەندی بکەین و بازاڕێکی
+        نوێ بۆ بەرهەمە کوردییەکان دروست بکەین.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SELLER -->
+
+  <section class="seller" id="seller">
 
     <h2>
-      Made in Kurdistan
+      براندت هەیە؟
     </h2>
 
-    <br>
-
     <p>
-      KURDIA is a marketplace created to connect
-      Kurdish brands, local businesses and customers
-      in one place.
-      Discover unique products, support local creators,
-      and shop from Kurdish brands.
+      بەرهەمەکانت لە کوردیە پیشان بدە و بە کڕیارانی نوێ بگە.
     </p>
+
+    <a href="#" class="seller-btn">
+      ببە بە فرۆشیار
+    </a>
 
   </section>
 
@@ -336,15 +1025,56 @@
 
   <footer>
 
-    <strong>KURDIA</strong>
+    <div class="footer-content">
 
-    <p>
-      Made in Kurdistan
-    </p>
+      <div>
 
-    <p>
-      Discover Kurdish Brands.
-    </p>
+        <div class="footer-logo">
+          کوردیە
+        </div>
+
+        <p>
+          هەموو بەرهەمە کوردییەکان،
+          لە یەک شوێن.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          بەستەرەکان
+        </h3>
+
+        <a href="#">سەرەتا</a>
+        <a href="#categories">بەشەکان</a>
+        <a href="#products">بەرهەمەکان</a>
+        <a href="#brands">براندەکان</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          یارمەتی
+        </h3>
+
+        <a href="#">پەیوەندیمان پێوە بکە</a>
+        <a href="#">مەرج و یاساکان</a>
+        <a href="#">پاراستنی زانیاری</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 کوردیە — هەموو مافەکان پارێزراون.
+
+    </div>
 
   </footer>
 
