@@ -523,155 +523,21 @@
     }
 
     .seller-btn {
+      display: inline-block;
       background: #111;
       color: white;
       border: none;
       padding: 14px 28px;
       border-radius: 12px;
       font-weight: bold;
-    }
-
-    /* ================= SELLER FORM ================= */
-
-    .seller-form-page {
-      display: none;
-      min-height: 100vh;
-      background: #f7f4ed;
-      padding: 70px 20px;
-    }
-
-    .seller-form-wrapper {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .seller-form-header {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .seller-form-header h1 {
-      font-size: 42px;
-      color: #111;
-      margin-bottom: 10px;
-    }
-
-    .seller-form-header p {
-      color: #666;
-      font-size: 17px;
-    }
-
-    .seller-form-box {
-      background: white;
-      border-radius: 25px;
-      padding: 35px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.10);
-      border-top: 5px solid #ffd21f;
-    }
-
-    .form-group {
-      margin-bottom: 22px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .form-group label span {
-      color: #d00000;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 14px;
-      font-family: inherit;
       font-size: 16px;
-      outline: none;
-      background: #fff;
+      cursor: pointer;
       transition: .2s;
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #ffd21f;
-      box-shadow: 0 0 0 3px rgba(255,210,31,.15);
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .photo-upload {
-      border: 2px dashed #ffd21f;
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      background: #fffdf3;
-    }
-
-    .photo-upload p {
-      margin-bottom: 12px;
-      color: #666;
-    }
-
-    .photo-upload input {
-      border: none;
-      padding: 0;
-      background: transparent;
-    }
-
-    .selfie-preview {
-      display: none;
-      max-width: 180px;
-      max-height: 180px;
-      margin: 15px auto 0;
-      border-radius: 15px;
-      object-fit: cover;
-      border: 3px solid #ffd21f;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .send-whatsapp-btn {
-      flex: 1;
-      min-width: 220px;
-      background: #25D366;
-      color: white;
-      border: none;
-      padding: 16px 20px;
-      border-radius: 12px;
-      font-size: 17px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .close-form-btn {
-      background: #111;
-      color: white;
-      border: none;
-      padding: 16px 25px;
-      border-radius: 12px;
-      font-weight: 900;
-    }
-
-    .required-note {
-      font-size: 13px;
-      color: #777;
-      margin-top: 10px;
+    .seller-btn:hover {
+      background: #222;
+      transform: translateY(-2px);
     }
 
     /* ================= FOOTER ================= */
@@ -770,11 +636,7 @@
         padding: 0 15px;
       }
 
-      .seller-form-box {
-        padding: 22px;
-      }
-
-      .seller-form-header h1 {
+      .seller h2 {
         font-size: 30px;
       }
 
@@ -788,6 +650,8 @@
 
   <div id="mainWebsite">
 
+    <!-- ================= HEADER ================= -->
+
     <header>
       <nav class="navbar">
 
@@ -796,12 +660,18 @@
         </div>
 
         <div class="center-logo">
-          <img src="FB_IMG_1790953402602.jpg" alt="لۆگۆی کوردیە">
+          <img
+            src="FB_IMG_1790953402602.jpg"
+            alt="لۆگۆی کوردیە"
+          >
         </div>
 
         <div class="nav-actions">
 
-          <button class="nav-btn">
+          <button
+            class="nav-btn"
+            onclick="document.getElementById('searchInput').focus()"
+          >
             گەڕان
           </button>
 
@@ -835,11 +705,19 @@
 
         <div class="hero-buttons">
 
-          <a href="#products" class="primary-btn">
+          <a
+            href="#products"
+            class="primary-btn"
+          >
             بینینی بەرهەمەکان
           </a>
 
-          <a href="#seller" class="secondary-btn">
+          <a
+            href="https://wa.me/qr/TZGGZG6OVWXOM1"
+            class="secondary-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             ببە بە فرۆشیار
           </a>
 
@@ -940,7 +818,10 @@
 
     <!-- ================= PRODUCTS ================= -->
 
-    <section class="section products-section" id="products">
+    <section
+      class="section products-section"
+      id="products"
+    >
 
       <div class="container">
 
@@ -999,7 +880,12 @@
 
                 <button
                   class="add-btn"
-                  onclick="openProduct('جانتای دەستکرد', 'براندی کوردی', '$35', '👜')"
+                  onclick="openProduct(
+                    'جانتای دەستکرد',
+                    'براندی کوردی',
+                    '$35',
+                    '👜'
+                  )"
                 >
                   زیادکردن
                 </button>
@@ -1050,7 +936,12 @@
 
                 <button
                   class="add-btn"
-                  onclick="openProduct('جلی کوردی مۆدێرن', 'بەرهەمی ناوخۆیی', '$45', '👕')"
+                  onclick="openProduct(
+                    'جلی کوردی مۆدێرن',
+                    'بەرهەمی ناوخۆیی',
+                    '$45',
+                    '👕'
+                  )"
                 >
                   زیادکردن
                 </button>
@@ -1101,7 +992,12 @@
 
                 <button
                   class="add-btn"
-                  onclick="openProduct('بەرهەمی سروشتی', 'سروشتی کوردستان', '$20', '🌿')"
+                  onclick="openProduct(
+                    'بەرهەمی سروشتی',
+                    'سروشتی کوردستان',
+                    '$20',
+                    '🌿'
+                  )"
                 >
                   زیادکردن
                 </button>
@@ -1153,7 +1049,12 @@
 
                 <button
                   class="add-btn"
-                  onclick="openProduct('دیاری دەستکرد', 'کاری دەستی', '$25', '🎁')"
+                  onclick="openProduct(
+                    'دیاری دەستکرد',
+                    'کاری دەستی',
+                    '$25',
+                    '🎁'
+                  )"
                 >
                   زیادکردن
                 </button>
@@ -1173,23 +1074,35 @@
 
     <!-- ================= PRODUCT DETAIL ================= -->
 
-    <section class="product-detail" id="productDetail">
+    <section
+      class="product-detail"
+      id="productDetail"
+    >
 
       <div class="container">
 
-        <a href="#products" class="back-btn">
+        <a
+          href="#products"
+          class="back-btn"
+        >
           ← گەڕانەوە بۆ بەرهەمەکان
         </a>
 
         <div class="detail-box">
 
-          <div class="detail-image" id="detailImage">
+          <div
+            class="detail-image"
+            id="detailImage"
+          >
             👜
           </div>
 
           <div class="detail-content">
 
-            <div class="detail-brand" id="detailBrand">
+            <div
+              class="detail-brand"
+              id="detailBrand"
+            >
               براندی کوردی
             </div>
 
@@ -1198,13 +1111,21 @@
             </h1>
 
             <div class="detail-rating">
+
               ★★★★★
-              <span style="color:#777;font-size:14px;">
+
+              <span
+                style="color:#777;font-size:14px;"
+              >
                 (4.9)
               </span>
+
             </div>
 
-            <div class="detail-price" id="detailPrice">
+            <div
+              class="detail-price"
+              id="detailPrice"
+            >
               $35
             </div>
 
@@ -1239,11 +1160,17 @@
 
             <div class="detail-actions">
 
-              <button class="cart-btn" onclick="addToCart()">
+              <button
+                class="cart-btn"
+                onclick="addToCart()"
+              >
                 🛒 زیادکردن بۆ سەبەت
               </button>
 
-              <button class="buy-btn" onclick="buyNow()">
+              <button
+                class="buy-btn"
+                onclick="buyNow()"
+              >
                 کڕینی ئێستا
               </button>
 
@@ -1303,7 +1230,10 @@
 
     <!-- ================= SELLER ================= -->
 
-    <section class="seller" id="seller">
+    <section
+      class="seller"
+      id="seller"
+    >
 
       <h2>
         بەرهەمەکەت هەیە؟
@@ -1314,9 +1244,14 @@
         و بەرهەمەکەت بە کڕیارانی زیاتر بناسێنە.
       </p>
 
-      <button class="seller-btn" onclick="openSellerForm()">
+      <a
+        href="https://wa.me/qr/TZGGZG6OVWXOM1"
+        class="seller-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         ببە بە فرۆشیار
-      </button>
+      </a>
 
     </section>
 
@@ -1333,196 +1268,15 @@
         بازاڕی بەرهەمە کوردییەکان
       </p>
 
-      <p style="margin-top:15px;font-size:13px;">
+      <p
+        style="margin-top:15px;font-size:13px;"
+      >
         © 2026 کوردیە — هەموو مافەکان پارێزراون.
       </p>
 
     </footer>
 
   </div>
-
-
-  <!-- ================= SELLER FORM PAGE ================= -->
-
-  <section class="seller-form-page" id="sellerFormPage">
-
-    <div class="seller-form-wrapper">
-
-      <div class="seller-form-header">
-
-        <h1>
-          تۆمارکردن وەک فرۆشیار
-        </h1>
-
-        <p>
-          تکایە زانیارییەکانت بە دروستی پڕ بکەرەوە.
-          دوای ناردن، داواکارییەکەت بۆ کوردیە دەنێردرێت.
-        </p>
-
-      </div>
-
-
-      <div class="seller-form-box">
-
-        <form id="sellerForm">
-
-
-          <!-- SELLER NAME -->
-
-          <div class="form-group">
-
-            <label>
-              ناوی فرۆشیار <span>*</span>
-            </label>
-
-            <input
-              type="text"
-              id="sellerName"
-              placeholder="ناوی تەواوی خۆت بنووسە"
-              required
-            >
-
-          </div>
-
-
-          <!-- BRAND NAME -->
-
-          <div class="form-group">
-
-            <label>
-              ناوی براند <span>*</span>
-            </label>
-
-            <input
-              type="text"
-              id="brandName"
-              placeholder="ناوی براندەکەت بنووسە"
-              required
-            >
-
-          </div>
-
-
-          <!-- PHONE -->
-
-          <div class="form-group">
-
-            <label>
-              ژمارەی تەلەفون <span>*</span>
-            </label>
-
-            <input
-              type="tel"
-              id="phoneNumber"
-              placeholder="نموونە: 0750 000 0000"
-              required
-            >
-
-          </div>
-
-
-          <!-- WHATSAPP -->
-
-          <div class="form-group">
-
-            <label>
-              ژمارەی WhatsApp <span>*</span>
-            </label>
-
-            <input
-              type="tel"
-              id="whatsappNumber"
-              placeholder="ژمارەی WhatsApp ـەکەت"
-              required
-            >
-
-          </div>
-
-
-          <!-- ADDRESS -->
-
-          <div class="form-group">
-
-            <label>
-              ناونیشانی تەواوی شوێنی کار <span>*</span>
-            </label>
-
-            <textarea
-              id="businessAddress"
-              placeholder="شار، ناوچە، شەقام، کۆڵان، نزیکترین نیشانە و هەر زانیارییەکی پێویست..."
-              required
-            ></textarea>
-
-          </div>
-
-
-          <!-- SELFIE -->
-
-          <div class="form-group">
-
-            <label>
-              وێنەی سێڵفی <span>*</span>
-            </label>
-
-            <div class="photo-upload">
-
-              <p>
-                تکایە وێنەیەکی ڕوونی خۆت هەڵبژێرە.
-              </p>
-
-              <input
-                type="file"
-                id="selfie"
-                accept="image/*"
-                capture="user"
-                required
-                onchange="previewSelfie(event)"
-              >
-
-              <img
-                id="selfiePreview"
-                class="selfie-preview"
-                alt="پێشبینینی وێنە"
-              >
-
-            </div>
-
-          </div>
-
-
-          <div class="required-note">
-            * هەموو خانەکانی سەرەوە پێویستن.
-          </div>
-
-
-          <div class="form-actions">
-
-            <a
-              href="https://wa.me/qr/TZGGZG6OVWXOM1"
-              class="send-whatsapp-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ناردنی داواکاری بۆ WhatsApp
-            </a>
-
-            <button
-              type="button"
-              class="close-form-btn"
-              onclick="closeSellerForm()"
-            >
-              گەڕانەوە
-            </button>
-
-          </div>
-
-        </form>
-
-      </div>
-
-    </div>
-
-  </section>
 
 
   <!-- ================= JAVASCRIPT ================= -->
@@ -1534,25 +1288,40 @@
 
     /* ================= PRODUCT ================= */
 
-    function openProduct(name, brand, price, image) {
+    function openProduct(
+      name,
+      brand,
+      price,
+      image
+    ) {
 
-      document.getElementById("detailName").innerText = name;
+      document.getElementById(
+        "detailName"
+      ).innerText = name;
 
-      document.getElementById("detailBrand").innerText = brand;
+      document.getElementById(
+        "detailBrand"
+      ).innerText = brand;
 
-      document.getElementById("detailPrice").innerText = price;
+      document.getElementById(
+        "detailPrice"
+      ).innerText = price;
 
-      document.getElementById("detailImage").innerText = image;
+      document.getElementById(
+        "detailImage"
+      ).innerText = image;
 
       currentQuantity = 1;
 
-      document.getElementById("quantity").innerText =
-        currentQuantity;
+      document.getElementById(
+        "quantity"
+      ).innerText = currentQuantity;
 
-      document.getElementById("productDetail")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
+      document.getElementById(
+        "productDetail"
+      ).scrollIntoView({
+        behavior: "smooth"
+      });
 
     }
 
@@ -1565,8 +1334,9 @@
         currentQuantity = 1;
       }
 
-      document.getElementById("quantity").innerText =
-        currentQuantity;
+      document.getElementById(
+        "quantity"
+      ).innerText = currentQuantity;
 
     }
 
@@ -1592,7 +1362,9 @@
     function searchProducts() {
 
       const value =
-        document.getElementById("searchInput").value.trim();
+        document.getElementById(
+          "searchInput"
+        ).value.trim();
 
       if (value === "") {
 
@@ -1607,73 +1379,6 @@
       alert(
         "گەڕان بۆ: " + value
       );
-
-    }
-
-
-    /* ================= SELLER FORM ================= */
-
-    function openSellerForm() {
-
-      document.getElementById("mainWebsite").style.display =
-        "none";
-
-      document.getElementById("sellerFormPage").style.display =
-        "block";
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-
-
-    function closeSellerForm() {
-
-      document.getElementById("sellerFormPage").style.display =
-        "none";
-
-      document.getElementById("mainWebsite").style.display =
-        "block";
-
-      document.getElementById("seller").scrollIntoView({
-        behavior: "smooth"
-      });
-
-    }
-
-
-    /* ================= SELFIE PREVIEW ================= */
-
-    function previewSelfie(event) {
-
-      const file = event.target.files[0];
-
-      const preview =
-        document.getElementById("selfiePreview");
-
-      if (!file) {
-
-        preview.style.display = "none";
-
-        preview.src = "";
-
-        return;
-
-      }
-
-      const reader = new FileReader();
-
-      reader.onload = function(e) {
-
-        preview.src = e.target.result;
-
-        preview.style.display = "block";
-
-      };
-
-      reader.readAsDataURL(file);
 
     }
 
