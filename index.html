@@ -1,207 +1,352 @@
 <!DOCTYPE html>
-<html lang="ku">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KURDIA — Made in Kurdistan</title>
+  <title>KURDIA — Made in Kurdistan</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#080808;
-  color:white;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffdf5;
+      color: #111;
+    }
 
-header{
-  background:#0b0b0b;
-  padding:18px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #d4a900;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
+    header {
+      background: #111;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.logo{
-  color:#ffd21c;
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:3px;
-}
+    .logo {
+      color: #ffd21c;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  font-size:14px;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+      font-weight: 600;
+    }
 
-.hero{
-  min-height:80vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:50px 20px;
-  background:
-    radial-gradient(circle at center,#4a3900 0%,#171300 35%,#080808 70%);
-}
+    nav a:hover {
+      color: #ffd21c;
+    }
 
-.hero h1{
-  font-size:60px;
-  font-weight:900;
-  margin-bottom:15px;
-}
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at top, #fff4a8, transparent 45%),
+        linear-gradient(135deg, #fffdf5, #fff1a8);
+    }
 
-.hero h1 span{
-  color:#ffd21c;
-}
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 80px);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
 
-.hero p{
-  color:#ddd;
-  font-size:20px;
-  margin-bottom:30px;
-}
+    .hero h1 span {
+      color: #e5b800;
+    }
 
-.btn{
-  display:inline-block;
-  background:#ffd21c;
-  color:#080808;
-  padding:15px 32px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
+    .hero p {
+      font-size: 20px;
+      color: #555;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
 
-.section{
-  padding:70px 7%;
-  text-align:center;
-}
+    .btn {
+      display: inline-block;
+      background: #111;
+      color: #ffd21c;
+      padding: 16px 35px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #ffd21c;
+      transition: 0.3s;
+    }
 
-.section h2{
-  color:#ffd21c;
-  font-size:34px;
-  margin-bottom:35px;
-}
+    .btn:hover {
+      background: #ffd21c;
+      color: #111;
+    }
 
-.categories{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:18px;
-  max-width:1000px;
-  margin:auto;
-}
+    .section {
+      padding: 70px 6%;
+      text-align: center;
+    }
 
-.category{
-  background:#151515;
-  border:1px solid #4d3c00;
-  padding:30px 15px;
-  border-radius:15px;
-  font-size:18px;
-  font-weight:bold;
-  transition:.3s;
-}
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
 
-.category:hover{
-  border-color:#ffd21c;
-  transform:translateY(-5px);
-}
+    .section-subtitle {
+      color: #666;
+      margin-bottom: 40px;
+    }
 
-footer{
-  background:#050505;
-  text-align:center;
-  padding:35px 20px;
-  border-top:1px solid #4d3c00;
-}
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-footer strong{
-  color:#ffd21c;
-  font-size:24px;
-}
+    .category {
+      background: white;
+      padding: 35px 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 1px solid #eee;
+    }
 
-@media(max-width:600px){
-  .hero h1{
-    font-size:42px;
-  }
+    .category:hover {
+      transform: translateY(-6px);
+      border-color: #ffd21c;
+    }
 
-  nav a{
-    font-size:11px;
-    margin-left:8px;
-  }
-}
-</style>
+    .category-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .about {
+      background: #111;
+      color: white;
+    }
+
+    .about h2 {
+      color: #ffd21c;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      color: #ddd;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    footer {
+      background: #080808;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer strong {
+      color: #ffd21c;
+      font-size: 25px;
+    }
+
+    footer p {
+      margin-top: 10px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav a {
+        margin-left: 8px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .section {
+        padding: 55px 20px;
+      }
+
+      .section h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">KURDIA</div>
+  <!-- HEADER -->
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#">Brands</a>
-  </nav>
-</header>
+  <header>
 
-<section class="hero">
-  <div>
-    <h1>Discover <span>KURDIA</span></h1>
+    <div class="logo">
+      KURDIA
+    </div>
 
-    <p>
-      Made in Kurdistan — Kurdish Brands & Local Products
+    <nav>
+      <a href="#">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#about">About</a>
+    </nav>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div>
+
+      <h1>
+        Discover <span>KURDIA</span>
+      </h1>
+
+      <p>
+        Discover Kurdish brands and locally made products
+        from Kurdistan — all in one place.
+      </p>
+
+      <a href="#categories" class="btn">
+        Explore Products
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="section" id="categories">
+
+    <h2>
+      Shop by Category
+    </h2>
+
+    <p class="section-subtitle">
+      Discover products made by Kurdish brands and local creators.
     </p>
 
-    <a href="#categories" class="btn">
-      Explore Products
-    </a>
-  </div>
-</section>
+    <div class="categories">
 
-<section class="section" id="categories">
+      <div class="category">
+        <div class="category-icon">👕</div>
+        Fashion
+      </div>
 
-  <h2>Shop by Category</h2>
+      <div class="category">
+        <div class="category-icon">👜</div>
+        Bags & Shoes
+      </div>
 
-  <div class="categories">
+      <div class="category">
+        <div class="category-icon">💄</div>
+        Beauty
+      </div>
 
-    <div class="category">👕 Fashion</div>
+      <div class="category">
+        <div class="category-icon">🍯</div>
+        Food & Drinks
+      </div>
 
-    <div class="category">👜 Bags & Shoes</div>
+      <div class="category">
+        <div class="category-icon">🏠</div>
+        Home
+      </div>
 
-    <div class="category">💄 Beauty</div>
+      <div class="category">
+        <div class="category-icon">🎁</div>
+        Gifts
+      </div>
 
-    <div class="category">🍯 Food</div>
+      <div class="category">
+        <div class="category-icon">🌿</div>
+        Natural Products
+      </div>
 
-    <div class="category">🏠 Home</div>
+      <div class="category">
+        <div class="category-icon">✨</div>
+        Handmade
+      </div>
 
-    <div class="category">🎁 Gifts</div>
+    </div>
 
-  </div>
+  </section>
 
-</section>
 
-<footer>
+  <!-- ABOUT -->
 
-  <p><strong>KURDIA</strong></p>
+  <section class="section about" id="about">
 
-  <br>
+    <h2>
+      Made in Kurdistan
+    </h2>
 
-  <p>Made in Kurdistan</p>
+    <br>
 
-  <br>
+    <p>
+      KURDIA is a marketplace created to connect
+      Kurdish brands, local businesses and customers
+      in one place.
+      Discover unique products, support local creators,
+      and shop from Kurdish brands.
+    </p>
 
-  <p>All Kurdish brands in one place.</p>
+  </section>
 
-</footer>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <strong>KURDIA</strong>
+
+    <p>
+      Made in Kurdistan
+    </p>
+
+    <p>
+      Discover Kurdish Brands.
+    </p>
+
+  </footer>
 
 </body>
 </html>
