@@ -7,6 +7,7 @@
   <title>کوردیە | بازاڕی بەرهەمە کوردییەکان</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -30,6 +31,7 @@
       cursor: pointer;
     }
 
+
     /* ================= HEADER ================= */
 
     header {
@@ -46,6 +48,7 @@
       height: 90px;
       margin: auto;
       padding: 0 25px;
+
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -88,6 +91,7 @@
       padding: 10px 16px;
       border-radius: 10px;
       transition: .2s;
+      position: relative;
     }
 
     .nav-btn:hover {
@@ -95,17 +99,46 @@
       color: #111;
     }
 
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+
+      min-width: 22px;
+      height: 22px;
+
+      padding: 0 5px;
+
+      background: #ffd21f;
+      color: #111;
+
+      border-radius: 50%;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+
     /* ================= HERO ================= */
 
     .hero {
       min-height: 510px;
+
       background:
         linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
         radial-gradient(circle at center, #4a4100, #111 65%);
+
       color: white;
+
       display: flex;
       align-items: center;
+
       text-align: center;
+
       padding: 70px 20px;
     }
 
@@ -159,6 +192,7 @@
       font-weight: 700;
     }
 
+
     /* ================= SEARCH ================= */
 
     .search-area {
@@ -195,6 +229,7 @@
       font-weight: bold;
     }
 
+
     /* ================= GENERAL ================= */
 
     .container {
@@ -220,6 +255,7 @@
     .section-title p {
       color: #777;
     }
+
 
     /* ================= CATEGORIES ================= */
 
@@ -251,6 +287,7 @@
     .category strong {
       font-size: 14px;
     }
+
 
     /* ================= PRODUCTS ================= */
 
@@ -304,12 +341,16 @@
       position: absolute;
       top: 12px;
       right: 12px;
+
       background: #ffd21f;
       color: #111;
+
       padding: 5px 10px;
       border-radius: 8px;
+
       font-size: 12px;
       font-weight: bold;
+
       z-index: 2;
     }
 
@@ -317,12 +358,16 @@
       position: absolute;
       top: 12px;
       left: 12px;
+
       width: 36px;
       height: 36px;
+
       border-radius: 50%;
       border: none;
+
       background: white;
       font-size: 18px;
+
       z-index: 2;
     }
 
@@ -369,6 +414,7 @@
       font-weight: bold;
     }
 
+
     /* ================= PRODUCT DETAIL ================= */
 
     .product-detail {
@@ -379,10 +425,13 @@
     .back-btn {
       display: inline-block;
       margin-bottom: 25px;
+
       background: white;
       border: 1px solid #ddd;
+
       padding: 10px 17px;
       border-radius: 10px;
+
       font-weight: bold;
     }
 
@@ -390,19 +439,26 @@
       background: white;
       border-radius: 25px;
       padding: 30px;
+
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       gap: 45px;
+
       box-shadow: 0 12px 40px rgba(0,0,0,.08);
     }
 
     .detail-image {
       min-height: 500px;
+
       background: #f1eee6;
+
       border-radius: 20px;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       overflow: hidden;
     }
 
@@ -443,12 +499,16 @@
 
     .detail-category {
       display: inline-block;
+
       background: #fff4b8;
       color: #8a6b00;
+
       padding: 6px 12px;
       border-radius: 8px;
+
       font-size: 13px;
       font-weight: bold;
+
       margin-bottom: 15px;
     }
 
@@ -465,10 +525,14 @@
 
     .quantity {
       display: flex;
+
       width: 140px;
+
       border: 1px solid #ddd;
       border-radius: 10px;
+
       overflow: hidden;
+
       margin-bottom: 25px;
     }
 
@@ -481,6 +545,7 @@
 
     .quantity span {
       flex: 1;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -495,9 +560,12 @@
     .buy-btn {
       background: #111;
       color: #ffd21f;
+
       border: none;
+
       padding: 15px 25px;
       border-radius: 12px;
+
       font-size: 16px;
       font-weight: 900;
     }
@@ -505,12 +573,260 @@
     .cart-btn {
       background: #ffd21f;
       color: #111;
+
       border: none;
+
       padding: 15px 25px;
       border-radius: 12px;
+
       font-size: 16px;
       font-weight: 900;
     }
+
+
+    /* ================= CART ================= */
+
+    .cart-section {
+      display: none;
+      min-height: 100vh;
+      background: #f7f4ed;
+      padding: 60px 20px;
+    }
+
+    .cart-wrapper {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .cart-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .cart-header h1 {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    .cart-header p {
+      color: #777;
+    }
+
+    .cart-box {
+      background: white;
+      border-radius: 22px;
+      padding: 25px;
+
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+
+    .cart-store {
+      background: #111;
+      color: white;
+
+      padding: 16px 20px;
+
+      border-radius: 14px;
+
+      margin-bottom: 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cart-store-name {
+      color: #ffd21f;
+      font-weight: 900;
+    }
+
+    .cart-item {
+      display: grid;
+
+      grid-template-columns: 100px 1fr auto;
+
+      gap: 18px;
+
+      align-items: center;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      background: #f1eee6;
+    }
+
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-name {
+      font-size: 19px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .cart-item-brand {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .cart-item-price {
+      color: #c69d00;
+      font-weight: 900;
+    }
+
+    .cart-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .cart-qty-btn {
+      width: 32px;
+      height: 32px;
+
+      border: 1px solid #ddd;
+      background: #f7f7f7;
+
+      border-radius: 7px;
+
+      font-size: 18px;
+    }
+
+    .cart-qty-number {
+      min-width: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .remove-item {
+      border: none;
+      background: #ffe8e8;
+      color: #c00000;
+
+      padding: 8px 12px;
+      border-radius: 8px;
+
+      font-weight: bold;
+
+      margin-top: 10px;
+    }
+
+    .cart-item-total {
+      font-size: 19px;
+      font-weight: 900;
+      color: #111;
+      white-space: nowrap;
+    }
+
+    .cart-summary {
+      margin-top: 25px;
+
+      padding-top: 20px;
+
+      border-top: 2px solid #eee;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+
+      font-size: 20px;
+      font-weight: 900;
+
+      margin-bottom: 20px;
+    }
+
+    .summary-total {
+      color: #c69d00;
+      font-size: 25px;
+    }
+
+    .cart-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .checkout-btn {
+      flex: 1;
+      min-width: 220px;
+
+      background: #ffd21f;
+      color: #111;
+
+      border: none;
+
+      padding: 15px 20px;
+
+      border-radius: 12px;
+
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .continue-btn {
+      background: #111;
+      color: white;
+
+      border: none;
+
+      padding: 15px 25px;
+
+      border-radius: 12px;
+
+      font-weight: 900;
+    }
+
+    .clear-cart-btn {
+      background: #ffe8e8;
+      color: #c00000;
+
+      border: none;
+
+      padding: 15px 20px;
+
+      border-radius: 12px;
+
+      font-weight: 900;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .empty-cart-icon {
+      font-size: 70px;
+      margin-bottom: 15px;
+    }
+
+    .empty-cart h2 {
+      margin-bottom: 10px;
+    }
+
+    .empty-cart p {
+      color: #777;
+      margin-bottom: 25px;
+    }
+
 
     /* ================= BRANDS ================= */
 
@@ -523,12 +839,17 @@
     .brand-card {
       background: white;
       border: 1px solid #eee;
+
       padding: 30px;
+
       border-radius: 18px;
+
       text-align: center;
+
       font-size: 22px;
       font-weight: 900;
     }
+
 
     /* ================= SELLER ================= */
 
@@ -550,14 +871,21 @@
 
     .seller-btn {
       display: inline-block;
+
       background: #111;
       color: white;
+
       border: none;
+
       padding: 14px 28px;
+
       border-radius: 12px;
+
       font-weight: bold;
       font-size: 16px;
+
       cursor: pointer;
+
       transition: .2s;
     }
 
@@ -566,25 +894,31 @@
       transform: translateY(-2px);
     }
 
+
     /* ================= FOOTER ================= */
 
     footer {
       background: #111;
       color: white;
+
       padding: 45px 20px;
+
       text-align: center;
     }
 
     footer .logo-text {
       color: #ffd21f;
+
       font-size: 28px;
       font-weight: 900;
+
       margin-bottom: 10px;
     }
 
     footer p {
       color: #999;
     }
+
 
     /* ================= RESPONSIVE ================= */
 
@@ -607,6 +941,7 @@
       }
 
     }
+
 
     @media (max-width: 650px) {
 
@@ -669,31 +1004,57 @@
         font-size: 30px;
       }
 
+      .cart-item {
+        grid-template-columns: 75px 1fr;
+      }
+
+      .cart-item-image {
+        width: 75px;
+        height: 75px;
+      }
+
+      .cart-item-total {
+        grid-column: 2;
+      }
+
+      .cart-box {
+        padding: 18px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- ================= MAIN WEBSITE ================= -->
 
   <div id="mainWebsite">
 
+
     <!-- ================= HEADER ================= -->
 
     <header>
+
       <nav class="navbar">
 
         <div class="brand-name">
           کوردیە
         </div>
 
+
         <div class="center-logo">
+
           <img
             src="FB_IMG_1790953402602.jpg"
             alt="لۆگۆی کوردیە"
           >
+
         </div>
+
 
         <div class="nav-actions">
 
@@ -704,14 +1065,29 @@
             گەڕان
           </button>
 
-          <button class="nav-btn">
+
+          <button
+            class="nav-btn"
+            onclick="openCart()"
+          >
+
             🛒 سەبەت
+
+            <span
+              id="cartCount"
+              class="cart-count"
+            >
+              0
+            </span>
+
           </button>
 
         </div>
 
       </nav>
+
     </header>
+
 
 
     <!-- ================= HERO ================= -->
@@ -732,6 +1108,7 @@
           بەرهەمە کوردییەکان و براندە ناوخۆییەکان لە یەک شوێن بدۆزەرەوە.
         </p>
 
+
         <div class="hero-buttons">
 
           <a
@@ -740,6 +1117,7 @@
           >
             بینینی بەرهەمەکان
           </a>
+
 
           <a
             href="https://wa.me/qr/TZGGZG6OVWXOM1"
@@ -755,6 +1133,7 @@
       </div>
 
     </section>
+
 
 
     <!-- ================= SEARCH ================= -->
@@ -778,6 +1157,7 @@
     </div>
 
 
+
     <!-- ================= CATEGORIES ================= -->
 
     <section class="section">
@@ -795,6 +1175,7 @@
           </p>
 
         </div>
+
 
         <div class="categories">
 
@@ -845,6 +1226,7 @@
     </section>
 
 
+
     <!-- ================= PRODUCTS ================= -->
 
     <section
@@ -866,6 +1248,7 @@
 
         </div>
 
+
         <div class="products">
 
 
@@ -883,12 +1266,14 @@
                 ♡
               </button>
 
+
               <img
                 src="41f2883491daa97b85ec25b7966b46a9.jpg"
                 alt="هەنگوینی شاخ"
               >
 
             </div>
+
 
             <div class="product-info">
 
@@ -904,18 +1289,20 @@
                 ★★★★★
               </div>
 
+
               <div class="price-row">
 
                 <div class="price">
                   9,000 دینار
                 </div>
 
+
                 <button
                   class="add-btn"
                   onclick="openProduct(
                     'هەنگوینی شاخ',
                     'kardy stor',
-                    '9,000 دینار',
+                    9000,
                     '41f2883491daa97b85ec25b7966b46a9.jpg',
                     'خواردن',
                     'هەنگوینێکی زۆر موهیمە'
@@ -929,6 +1316,7 @@
             </div>
 
           </div>
+
 
 
           <!-- ================= PRODUCT 2 ================= -->
@@ -948,10 +1336,11 @@
               👕
             </div>
 
+
             <div class="product-info">
 
               <div class="brand">
-                بەرهەمی ناوخۆیی
+                براندی دووەم
               </div>
 
               <div class="product-name">
@@ -962,18 +1351,20 @@
                 ★★★★★
               </div>
 
+
               <div class="price-row">
 
                 <div class="price">
-                  $45
+                  45,000 دینار
                 </div>
+
 
                 <button
                   class="add-btn"
                   onclick="openProduct(
                     'جلی کوردی مۆدێرن',
-                    'بەرهەمی ناوخۆیی',
-                    '$45',
+                    'براندی دووەم',
+                    45000,
                     '',
                     'جل و بەرگ',
                     'بەرهەمێکی ناوخۆیی'
@@ -987,6 +1378,7 @@
             </div>
 
           </div>
+
 
 
           <!-- ================= PRODUCT 3 ================= -->
@@ -1006,6 +1398,7 @@
               🌿
             </div>
 
+
             <div class="product-info">
 
               <div class="brand">
@@ -1020,18 +1413,20 @@
                 ★★★★☆
               </div>
 
+
               <div class="price-row">
 
                 <div class="price">
-                  $20
+                  20,000 دینار
                 </div>
+
 
                 <button
                   class="add-btn"
                   onclick="openProduct(
                     'بەرهەمی سروشتی',
                     'سروشتی کوردستان',
-                    '$20',
+                    20000,
                     '',
                     'سروشتی',
                     'بەرهەمێکی سروشتی'
@@ -1045,6 +1440,7 @@
             </div>
 
           </div>
+
 
 
           <!-- ================= PRODUCT 4 ================= -->
@@ -1065,6 +1461,7 @@
 
             </div>
 
+
             <div class="product-info">
 
               <div class="brand">
@@ -1079,18 +1476,20 @@
                 ★★★★★
               </div>
 
+
               <div class="price-row">
 
                 <div class="price">
-                  $25
+                  25,000 دینار
                 </div>
+
 
                 <button
                   class="add-btn"
                   onclick="openProduct(
                     'دیاری دەستکرد',
                     'کاری دەستی',
-                    '$25',
+                    25000,
                     '',
                     'دیاری',
                     'بەرهەمێکی دەستکرد'
@@ -1105,11 +1504,13 @@
 
           </div>
 
+
         </div>
 
       </div>
 
     </section>
+
 
 
     <!-- ================= PRODUCT DETAIL ================= -->
@@ -1121,6 +1522,7 @@
 
       <div class="container">
 
+
         <a
           href="#products"
           class="back-btn"
@@ -1128,7 +1530,9 @@
           ← گەڕانەوە بۆ بەرهەمەکان
         </a>
 
+
         <div class="detail-box">
+
 
           <div
             class="detail-image"
@@ -1143,18 +1547,22 @@
 
           </div>
 
+
           <div class="detail-content">
+
 
             <div
               class="detail-brand"
               id="detailBrand"
             >
-              kardу stor
+              kardy stor
             </div>
+
 
             <h1 id="detailName">
               هەنگوینی شاخ
             </h1>
+
 
             <div
               class="detail-category"
@@ -1162,6 +1570,7 @@
             >
               خواردن
             </div>
+
 
             <div class="detail-rating">
 
@@ -1175,12 +1584,14 @@
 
             </div>
 
+
             <div
               class="detail-price"
               id="detailPrice"
             >
               9,000 دینار
             </div>
+
 
             <p
               class="detail-description"
@@ -1189,9 +1600,11 @@
               هەنگوینێکی زۆر موهیمە
             </p>
 
+
             <div class="quantity-title">
               ژمارەی بەرهەم
             </div>
+
 
             <div class="quantity">
 
@@ -1209,14 +1622,16 @@
 
             </div>
 
+
             <div class="detail-actions">
 
               <button
                 class="cart-btn"
-                onclick="addToCart()"
+                onclick="addCurrentProductToCart()"
               >
                 🛒 زیادکردن بۆ سەبەت
               </button>
+
 
               <button
                 class="buy-btn"
@@ -1234,6 +1649,7 @@
       </div>
 
     </section>
+
 
 
     <!-- ================= BRANDS ================= -->
@@ -1254,14 +1670,15 @@
 
         </div>
 
+
         <div class="brands">
 
           <div class="brand-card">
-            kardу stor
+            kardy stor
           </div>
 
           <div class="brand-card">
-            براندی ٢
+            براندی دووەم
           </div>
 
           <div class="brand-card">
@@ -1279,6 +1696,7 @@
     </section>
 
 
+
     <!-- ================= SELLER ================= -->
 
     <section
@@ -1290,10 +1708,12 @@
         بەرهەمەکەت هەیە؟
       </h2>
 
+
       <p>
         ببە بە یەکێک لە فرۆشیارەکانی کوردیە
         و بەرهەمەکەت بە کڕیارانی زیاتر بناسێنە.
       </p>
+
 
       <a
         href="https://wa.me/qr/TZGGZG6OVWXOM1"
@@ -1305,6 +1725,7 @@
       </a>
 
     </section>
+
 
 
     <!-- ================= FOOTER ================= -->
@@ -1330,14 +1751,71 @@
   </div>
 
 
+
+  <!-- ================= CART PAGE ================= -->
+
+  <section
+    class="cart-section"
+    id="cartSection"
+  >
+
+    <div class="cart-wrapper">
+
+
+      <div class="cart-header">
+
+        <h1>
+          🛒 سەبەتەکەت
+        </h1>
+
+        <p>
+          کاڵاکانی هەڵبژێردراوت لێرە دەبینیت
+        </p>
+
+      </div>
+
+
+      <div class="cart-box">
+
+
+        <div
+          id="cartContent"
+        >
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
   <!-- ================= JAVASCRIPT ================= -->
 
   <script>
 
+
+    /* ================= VARIABLES ================= */
+
     let currentQuantity = 1;
 
+    let currentProduct = {
+      name: "هەنگوینی شاخ",
+      brand: "kardy stor",
+      price: 9000,
+      image: "41f2883491daa97b85ec25b7966b46a9.jpg",
+      category: "خواردن",
+      description: "هەنگوینێکی زۆر موهیمە"
+    };
 
-    /* ================= PRODUCT ================= */
+
+    let cart = [];
+
+
+
+    /* ================= OPEN PRODUCT ================= */
 
     function openProduct(
       name,
@@ -1348,21 +1826,37 @@
       description
     ) {
 
+
+      currentProduct = {
+        name: name,
+        brand: brand,
+        price: price,
+        image: image,
+        category: category,
+        description: description
+      };
+
+
       document.getElementById(
         "detailName"
       ).innerText = name;
+
 
       document.getElementById(
         "detailBrand"
       ).innerText = brand;
 
+
       document.getElementById(
         "detailPrice"
-      ).innerText = price;
+      ).innerText =
+        formatPrice(price);
+
 
       document.getElementById(
         "detailCategory"
       ).innerText = category;
+
 
       document.getElementById(
         "detailDescription"
@@ -1373,6 +1867,7 @@
         document.getElementById(
           "detailProductImage"
         );
+
 
       if (image) {
 
@@ -1388,6 +1883,7 @@
 
       currentQuantity = 1;
 
+
       document.getElementById(
         "quantity"
       ).innerText = currentQuantity;
@@ -1402,13 +1898,19 @@
     }
 
 
+
+    /* ================= QUANTITY ================= */
+
     function changeQuantity(number) {
 
+
       currentQuantity += number;
+
 
       if (currentQuantity < 1) {
         currentQuantity = 1;
       }
+
 
       document.getElementById(
         "quantity"
@@ -1417,46 +1919,632 @@
     }
 
 
-    function addToCart() {
 
-      alert(
-        "بەرهەمەکە بە سەرکەوتوویی زیادکرا بۆ سەبەت."
+    /* ================= FORMAT PRICE ================= */
+
+    function formatPrice(price) {
+
+      return price.toLocaleString("en-US") + " دینار";
+
+    }
+
+
+
+    /* ================= ADD CURRENT PRODUCT ================= */
+
+    function addCurrentProductToCart() {
+
+      addProductToCart(
+        currentProduct,
+        currentQuantity
       );
 
     }
 
+
+
+    /* ================= ADD PRODUCT TO CART ================= */
+
+    function addProductToCart(
+      product,
+      quantity
+    ) {
+
+
+      /*
+        IMPORTANT:
+
+        سەبەتە تەنیا یەک فرۆشگا قبوڵ دەکات.
+        بۆیە لێرە brand ـی فرۆشگا بەراورد دەکەین.
+      */
+
+
+      if (cart.length > 0) {
+
+
+        const currentStore =
+          cart[0].brand;
+
+
+        if (currentStore !== product.brand) {
+
+
+          alert(
+            "⚠️ تەنیا لە یەک فرۆشگا دەتوانیت داواکاری بکەیت.\n\n" +
+
+            "سەبەتەکەت ئێستا کاڵای فرۆشگای:\n" +
+
+            currentStore +
+
+            "\n\nتێدایە.\n\n" +
+
+            "ئەگەر دەتەوێت لە فرۆشگای " +
+
+            product.brand +
+
+            " داوا بکەیت، سەبەتەکەت بەتاڵ بکە."
+          );
+
+
+          return;
+
+        }
+
+      }
+
+
+
+      /*
+        ئەگەر هەمان کاڵا پێشتر لە سەبەتەدا هەبوو،
+        تەنیا ژمارەکە زیاد دەکەین.
+      */
+
+
+      const existingProduct =
+        cart.find(
+          item =>
+            item.name === product.name &&
+            item.brand === product.brand
+        );
+
+
+      if (existingProduct) {
+
+        existingProduct.quantity += quantity;
+
+      } else {
+
+        cart.push({
+          ...product,
+          quantity: quantity
+        });
+
+      }
+
+
+      updateCartCount();
+
+
+      alert(
+        "✅ " +
+        product.name +
+        "\n\nبە سەرکەوتوویی زیادکرا بۆ سەبەت."
+      );
+
+    }
+
+
+
+    /* ================= CART COUNT ================= */
+
+    function updateCartCount() {
+
+
+      const count =
+        cart.reduce(
+          (total, item) =>
+            total + item.quantity,
+          0
+        );
+
+
+      const cartCount =
+        document.getElementById(
+          "cartCount"
+        );
+
+
+      cartCount.innerText = count;
+
+
+      if (count > 0) {
+
+        cartCount.style.display =
+          "flex";
+
+      } else {
+
+        cartCount.style.display =
+          "none";
+
+      }
+
+    }
+
+
+
+    /* ================= OPEN CART ================= */
+
+    function openCart() {
+
+
+      document.getElementById(
+        "mainWebsite"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "cartSection"
+      ).style.display = "block";
+
+
+      renderCart();
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+
+    /* ================= CLOSE CART ================= */
+
+    function closeCart() {
+
+
+      document.getElementById(
+        "cartSection"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "mainWebsite"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "products"
+      ).scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+
+
+    /* ================= RENDER CART ================= */
+
+    function renderCart() {
+
+
+      const content =
+        document.getElementById(
+          "cartContent"
+        );
+
+
+      if (cart.length === 0) {
+
+
+        content.innerHTML = `
+
+          <div class="empty-cart">
+
+            <div class="empty-cart-icon">
+              🛒
+            </div>
+
+            <h2>
+              سەبەتەکەت بەتاڵە
+            </h2>
+
+            <p>
+              هێشتا هیچ کاڵایەکت زیاد نەکردووە.
+            </p>
+
+            <button
+              class="continue-btn"
+              onclick="closeCart()"
+            >
+              بینینی بەرهەمەکان
+            </button>
+
+          </div>
+
+        `;
+
+
+        return;
+
+      }
+
+
+
+      const store =
+        cart[0].brand;
+
+
+      let itemsHTML = "";
+
+      let total = 0;
+
+
+      cart.forEach(
+        (
+          item,
+          index
+        ) => {
+
+
+          const itemTotal =
+            item.price *
+            item.quantity;
+
+
+          total += itemTotal;
+
+
+          itemsHTML += `
+
+            <div class="cart-item">
+
+
+              <div class="cart-item-image">
+
+                ${
+                  item.image
+
+                  ?
+
+                  `<img
+                    src="${item.image}"
+                    alt="${item.name}"
+                  >`
+
+                  :
+
+                  `<div
+                    style="
+                      width:100%;
+                      height:100%;
+                      display:flex;
+                      align-items:center;
+                      justify-content:center;
+                      font-size:45px;
+                    "
+                  >
+                    🛍️
+                  </div>`
+                }
+
+              </div>
+
+
+              <div>
+
+
+                <div class="cart-item-name">
+                  ${item.name}
+                </div>
+
+
+                <div class="cart-item-brand">
+                  ${item.brand}
+                </div>
+
+
+                <div class="cart-item-price">
+                  ${formatPrice(item.price)}
+                </div>
+
+
+                <div class="cart-item-actions">
+
+
+                  <button
+                    class="cart-qty-btn"
+                    onclick="changeCartQuantity(${index}, -1)"
+                  >
+                    −
+                  </button>
+
+
+                  <span
+                    class="cart-qty-number"
+                  >
+                    ${item.quantity}
+                  </span>
+
+
+                  <button
+                    class="cart-qty-btn"
+                    onclick="changeCartQuantity(${index}, 1)"
+                  >
+                    +
+                  </button>
+
+
+                </div>
+
+
+                <button
+                  class="remove-item"
+                  onclick="removeFromCart(${index})"
+                >
+                  🗑️ سڕینەوە
+                </button>
+
+
+              </div>
+
+
+              <div class="cart-item-total">
+
+                ${formatPrice(itemTotal)}
+
+              </div>
+
+
+            </div>
+
+          `;
+
+        }
+      );
+
+
+
+      content.innerHTML = `
+
+        <div class="cart-store">
+
+          <div>
+            فرۆشگا:
+          </div>
+
+          <div class="cart-store-name">
+            ${store}
+          </div>
+
+        </div>
+
+
+        ${itemsHTML}
+
+
+        <div class="cart-summary">
+
+
+          <div class="summary-row">
+
+            <span>
+              کۆی گشتی:
+            </span>
+
+            <span class="summary-total">
+              ${formatPrice(total)}
+            </span>
+
+          </div>
+
+
+          <div class="cart-actions">
+
+
+            <button
+              class="checkout-btn"
+              onclick="checkout()"
+            >
+              تەواوکردنی داواکاری
+            </button>
+
+
+            <button
+              class="continue-btn"
+              onclick="closeCart()"
+            >
+              زیادکردنی کاڵا
+            </button>
+
+
+            <button
+              class="clear-cart-btn"
+              onclick="clearCart()"
+            >
+              بەتاڵکردنی سەبەت
+            </button>
+
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+
+    /* ================= CHANGE CART QUANTITY ================= */
+
+    function changeCartQuantity(
+      index,
+      number
+    ) {
+
+
+      cart[index].quantity += number;
+
+
+      if (
+        cart[index].quantity < 1
+      ) {
+
+        cart[index].quantity = 1;
+
+      }
+
+
+      updateCartCount();
+
+
+      renderCart();
+
+    }
+
+
+
+    /* ================= REMOVE ================= */
+
+    function removeFromCart(index) {
+
+
+      cart.splice(
+        index,
+        1
+      );
+
+
+      updateCartCount();
+
+
+      renderCart();
+
+    }
+
+
+
+    /* ================= CLEAR CART ================= */
+
+    function clearCart() {
+
+
+      if (cart.length === 0) {
+        return;
+      }
+
+
+      const confirmClear =
+        confirm(
+          "دڵنیایت دەتەوێت سەبەتەکە بەتاڵ بکەیت؟"
+        );
+
+
+      if (!confirmClear) {
+        return;
+      }
+
+
+      cart = [];
+
+
+      updateCartCount();
+
+
+      renderCart();
+
+    }
+
+
+
+    /* ================= CHECKOUT ================= */
+
+    function checkout() {
+
+
+      if (cart.length === 0) {
+
+
+        alert(
+          "سەبەتەکەت بەتاڵە."
+        );
+
+
+        return;
+
+      }
+
+
+      alert(
+        "لە هەنگاوی داهاتوودا پەڕەی تەواوکردنی داواکاری COD زیاد دەکەین."
+      );
+
+    }
+
+
+
+    /* ================= BUY NOW ================= */
 
     function buyNow() {
 
-      alert(
-        "لە هەنگاوی داهاتوودا پەڕەی تەواوی داواکاری و COD زیاد دەکەین."
+
+      addProductToCart(
+        currentProduct,
+        currentQuantity
       );
+
+
+      if (
+        cart.length > 0 &&
+        cart[0].brand === currentProduct.brand
+      ) {
+
+        openCart();
+
+      }
 
     }
 
 
+
+    /* ================= SEARCH ================= */
+
     function searchProducts() {
+
 
       const value =
         document.getElementById(
           "searchInput"
         ).value.trim();
 
+
       if (value === "") {
+
 
         alert(
           "تکایە ناوی بەرهەم یان براند بنووسە."
         );
 
+
         return;
 
       }
 
+
       alert(
-        "گەڕان بۆ: " + value
+        "گەڕان بۆ: " +
+        value
       );
 
     }
+
+
+    /* ================= START ================= */
+
+    updateCartCount();
 
   </script>
 
